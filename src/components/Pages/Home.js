@@ -1,8 +1,13 @@
 
 import React from "react";
-function Home() {
+const Home =()=> {
     return (
-      <div className="App">
+      <div style={{
+        display:'flex',
+        justifyContent:'right',
+        alignItems:'right',
+        height:'100vh'
+      }}>
           <h1>Welcom to quick enrollment site</h1>
           <h1>This app is designed to help student easily and quickly
               register for their classes\n. On this website you can see

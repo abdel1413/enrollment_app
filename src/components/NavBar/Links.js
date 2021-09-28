@@ -10,13 +10,14 @@ const Links =()=>{
     <Nav>
         <Bars/>
       <NavMenu>
+      <NavLink to='/Home' activeStyle> Home </NavLink>
         <NavLink to='/About' activeStyle> About  </NavLink>
         <NavLink to='/Courses' activeStyle>  Courses  </NavLink>
         <NavLink to='/AdvancedCmps' activeStyle> AdvancedCmps</NavLink>
-        <NavLink to='/SignUp' activeStyle>SignUp </NavLink>
+        <NavLink to='/SignUp' activeStyle>Sign Up </NavLink>
       </NavMenu>
       <NavBtn>
-        <NavBtnLink to='/SignIn' activeStyle>SignIn</NavBtnLink>
+        <NavBtnLink to='/SignIn' activeStyle>Sign In</NavBtnLink>
      </NavBtn>
     </Nav>
     </>

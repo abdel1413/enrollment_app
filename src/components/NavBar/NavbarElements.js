@@ -4,11 +4,19 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
 background: #63D471;
-height: 85px;
-display: flex;
+ height: 80px;
+ display: flex;
+ align-items:center;
+ border:2px solid black;
 justify-content: space-between;
-padding: 0.2rem calc((100vw - 1000px) / 2);
-z-index: 12;`;
+padding: 1.2rem calc((100vw - 1000px) / 2);
+ z-index: 12;
+// position:fixed;
+// left:0;
+// top:0;
+// width:100%;
+// clear:both;
+`;
 
 export const NavLink = styled(Link)`
 color: #808080;
@@ -19,13 +27,13 @@ padding: 0 1rem;
 height: 100%;
 cursor: pointer;
 &.active {
-  color: #000000;
+  color: black;
 }
 `;
 
 export const Bars = styled(FaBars)`
-display:none;
-color:#808080;
+// display:none;
+ color:#808080;
 @media screen and (max-width: 768px){
   display:block;
   position:absolute;
@@ -36,14 +44,16 @@ color:#808080;
   cursor:pointer
 }
 `;
+
 export const NavMenu =styled.div`
-diplay:flex,
+clear:both;
+ diplay:flex;
 align-items:center;
-margin-right:-24px
+margin-right:-20px;
 @media screen and (max-width:768px){
-  display:none
+  display:none;
 }
-`;
+ `;
 
 export const NavBtn = styled.nav`
 display:flex;
@@ -69,5 +79,4 @@ margin-left:24px ;
   background: #fff;
   color:#808080
 }
-
 `;
