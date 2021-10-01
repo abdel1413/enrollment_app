@@ -1,7 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { Nav, Bars, NavMenu,NavBtn,NavBtnLink
- } from './NavbarElements'
+// import { NavLink  } from 'react-router-dom'
+// import { Nav, Bars, NavMenu,NavBtn,NavBtnLink
+//  } from './NavbarElements'
+
+ import {
+    Nav,
+    NavLink,
+    Bars,
+    NavMenu,
+    NavBtn,
+    NavBtnLink,
+  } from "./NavbarElements";
 
 
 const Links =()=>{
