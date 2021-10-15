@@ -12,12 +12,15 @@ import React from 'react'
     NavBtnLink,
   } from "./NavbarElements";
 
+  import './nav.css'
+
 
 const Links =()=>{
   return(
     <>
     <Nav>
-        <Bars/>
+        {/* <Bars/> */}
+       {/* z <div className='nav'> */}
       <NavMenu>
       <NavLink to='/' activeStyle> Home </NavLink>
         <NavLink to='/About' activeStyle> About  </NavLink>
@@ -26,9 +29,11 @@ const Links =()=>{
         <NavLink to='/SignUp' activeStyle>Sign Up </NavLink>
       </NavMenu>
       <NavBtn>
-        <NavBtnLink to='/SignIn' activeStyle>Sign In</NavBtnLink>
+        <NavBtnLink to='/SignIn' activeStyle>
+          Sign In</NavBtnLink>
      </NavBtn>
     </Nav>
+    {/* </div> */}
     </>
   )
 }
