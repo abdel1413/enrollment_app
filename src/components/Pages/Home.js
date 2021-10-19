@@ -4,7 +4,7 @@ import  "./Home.css";
 import axios from "axios";
 
 const Home =()=> {
-  const [Classname, setClassname] = useState('');
+  const [classname, setClassname] = useState('');
   const [Name, setName]= useState('');
   const [ Unit, setUnit] =useState(0)
 
@@ -13,7 +13,7 @@ const Home =()=> {
     //  make axios request by using localhost running express
     //and the endpoit created in back-end
     axios.post('http://localhost:3001/create',{
-      Classname:Classname,
+      classname:classname,
       Name:Name,
       Unit:Unit
 
@@ -45,13 +45,22 @@ const Home =()=> {
          fontSize:'25px',
          padding:'20px',marginTop:'20px'}}>
          <label>Classname</label>
-            <input type="text" onChange={(e)=>{setClassname(e.target.value)}} placeholder=' Enter class'/>
+            <input 
+            type="text" 
+            onChange={(e)=>{setClassname(e.target.value)}}
+             placeholder=' Enter class'/>
          
          <label>Name </label>
-             <input type="text" onChange={(e)=>{setName(e.target.value)}} placeholder=' Enter Name'/>
+             <input 
+             type="text" 
+             onChange={(e)=>{setName(e.target.value)}}
+              placeholder=' Enter Name'/>
         
          <label>Unit</label>
-            <input type="number" onChange={(e)=>{ setUnit(e.target.value)}} placeholder=' Enter Unit'/>
+            <input 
+            type="number" 
+            onChange={(e)=>{ setUnit(e.target.value)}} 
+            placeholder=' Enter Unit'/>
         
             <br/>
             <button onClick={Addclass}> add</button>

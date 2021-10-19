@@ -6,7 +6,7 @@ import Home from './components/Pages/Home';
 import About from './components/Pages/About';
 import AdvancedCmps from './components/Pages/AdvancedCmps';
 import SignUp from './components/Pages/SignUp';
-import SignIn from './components/Pages/SignIn';
+import SignIn from './components/signInComponent/SignIn';
 import Courses from './components/Pages/Courses';
 import NotFound from './components/Pages/NotFound';
   

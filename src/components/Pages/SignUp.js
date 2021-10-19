@@ -16,10 +16,10 @@ const SignUp =()=>{
             alignItems:'right',
             height:'100vh'
         }}>
-            <button variant='contained' onClick={handleOpen}SignUp></button>
+            {/* <button variant='contained' onClick={handleOpen}SignUp></button>
             
             {/* call model and pass props */}
-            <ModalDialog open={open} handleClose={handleClose}/>
+            {/* <ModalDialog open={open} handleClose={handleClose}/>  */}
         </div>
     )
 }
