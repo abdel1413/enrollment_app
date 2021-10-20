@@ -9,6 +9,7 @@ import SignUp from './components/Pages/SignUp';
 import SignIn from './components/signInComponent/SignIn';
 import Courses from './components/Pages/Courses';
 import NotFound from './components/Pages/NotFound';
+import SignOut from './components/SignOutComp/SignOut';
   
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         <Route path='/Courses' component={Courses} />
         <Route path='/AdvancedCmps' component={AdvancedCmps} />
         <Route path='/SignUp' component={SignUp}/>
-        <Route path='/SignIn' component={SignIn}/>
+        <Route path='/SignIn' component={SignOut}/>
         <Route  component={NotFound}/>
       </Switch>
 

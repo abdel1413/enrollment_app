@@ -30,7 +30,7 @@ const Links =()=>{
       </NavMenu>
       <NavBtn>
         <NavBtnLink to='/SignIn' activeStyle>
-          Sign In</NavBtnLink>
+          Sign Out</NavBtnLink>
      </NavBtn>
     </Nav>
     {/* </div> */}

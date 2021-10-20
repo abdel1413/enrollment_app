@@ -1,16 +1,19 @@
 import React from 'react'
 import 'tachyons'
 
-const SignIn =()=>{
+const SignIn =({onRouteChange})=>{
+
     return(
         // <div style={{
         //     display:'flex',
         //     justifyContent:'right',
         //     alignItems:'right',
-        //     height:'100vh'
+        //     height:'90vh',
+        //     width:'100%'
+            
         // }}>
-        //  {/* </div> */}
-        <article class="br3  ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+       
+        <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80 ">
             <form className="measure ">
               <fieldset id="sign_up" 
@@ -37,12 +40,14 @@ const SignIn =()=>{
                     type="password" 
                     name="password"  
                     id="password"/>
-                     <a href="#0" className="f7 pa2 link dim black db">Forgot your password?</a>
+                     <a href="#0" 
+                     className="f7 pa2 link dim black db">Forgot your password?</a>
                 </div>
                 
                 </fieldset>
                 <div className="">
                     <input 
+                    onClick={()=>onRouteChange('home')}
                     className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib center" 
                     type="submit" 
                     value="Sign in"/>
@@ -55,7 +60,7 @@ const SignIn =()=>{
             </form>
           </main>
         </article>
-       
+        //   </div> 
     )
 }
 
