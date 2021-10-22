@@ -1,16 +1,12 @@
 import React from 'react'
+import './AdvanceCmp.css'
 
 const AdvancedCmps =()=>{
     return(
-        <div style={{
-            display:'flex',
-            justifyContent:'right',
-            alignItems:'right',
-            height:'100vh'
-        }}>
-            <h1>
+        <div>
+            <p className='advancecourses'>
                 this is AdvancedCmps course page
-            </h1>
+            </p>
         </div>
     )
 }

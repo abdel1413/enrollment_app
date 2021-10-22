@@ -41,19 +41,19 @@ export const Bars = styled(FaBars)`
   }
 `;
   
-export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
-  /* Second Nav */
-  /* margin-right: 24px; */
-  /* Third Nav */
-  /* width: 100vw;
-  white-space: nowrap; */
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
+// export const NavMenu = styled.div`
+//   display: flex;
+//   align-items: center;
+//   margin-right: -24px;
+//   /* Second Nav */
+//   /* margin-right: 24px; */
+//   /* Third Nav */
+//   /* width: 100vw;
+//   white-space: nowrap; */
+//   @media screen and (max-width: 768px) {
+//     display: none;
+//   }
+// `;
   
 export const NavBtn = styled.nav`
   display: flex;
@@ -68,7 +68,7 @@ export const NavBtn = styled.nav`
 `;
   
 export const NavBtnLink = styled(Link)`
-  border-radius: 4px;
+  border-radius: 10px;
   background: #808080;
   padding: 10px 22px;
   color: #000000;

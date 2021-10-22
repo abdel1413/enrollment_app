@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React from "react";
 import  "./Home.css";
 import axios from "axios";
 import SignIn from "../signInComponent/SignIn";
@@ -12,7 +12,7 @@ class Home extends React.Component{
       classname:'',
       Name:'',
       Unit:'',
-      route:'route'
+      route:'signin'
     }
   }
   
@@ -26,13 +26,13 @@ class Home extends React.Component{
       Name: this.state.Name,
       Unit:this.state.Unit
 
-    }).then(()=>{console.log("response")})
+    }).then(()=>{console.log("Success")})
   }
 
 //need to signin before you can see home screen
  onRouteChange=(route)=>{
 
-this.setState({route:route})
+this.setState({route})
   }
   
   render(){
@@ -79,7 +79,7 @@ this.setState({route:route})
                             placeholder= 'Enter Unit'
                           />
                         <br/>
-                     <button onClick={this.Addclass}> add</button>
+                     <button onClick={this.Addclass}> add class</button>
                  </div>
          </div> }
       </div>

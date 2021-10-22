@@ -1,23 +1,23 @@
 import React, { useState } from 'react'
 import axios from "axios";
+import './Course.css'
+
 
  const Courses =()=>{
      const [courses,setCourses]= useState([])
 
      const getCourses =()=>{
-         axios.get("http://localhost:3001//courselist").then((response)=>{
-             console.log(setCourses(response))
+       const courseArray=  axios.get("http://localhost:3001/courselist").then((response)=>{
+             setCourses(response)
+             console.log(courseArray)
          })
+        
      }
    return(
        <div className="courslist">
-           <ul>
-               <li> course List</li>
-               <li>
-                  { getCourses } 
-               </li>
-           </ul>
            
+            <p className='courses'> course List </p> 
+            <p className='courses'>{getCourses } </p> 
        </div>
    )
 }

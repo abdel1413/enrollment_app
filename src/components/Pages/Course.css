@@ -1,0 +1,6 @@
+.courses {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(26, 112, 187);
+}

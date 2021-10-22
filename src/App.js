@@ -22,7 +22,8 @@ function App() {
         <Route path='/Courses' component={Courses} />
         <Route path='/AdvancedCmps' component={AdvancedCmps} />
         <Route path='/SignUp' component={SignUp}/>
-        <Route path='/SignIn' component={SignOut}/>
+        <Route path='/SignIn' component={SignIn}/>
+        <Route path='signOut' component={SignOut}/>
         <Route  component={NotFound}/>
       </Switch>
 

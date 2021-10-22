@@ -1,0 +1,8 @@
+.navmenue {
+  display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
