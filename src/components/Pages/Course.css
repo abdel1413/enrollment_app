@@ -1,6 +1,18 @@
-.courses {
+.generalcourse {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: rgb(26, 112, 187);
+}
+
+.courslist {
+  display: flex;
+  background-color: cornflowerblue;
+  justify-content: space-around;
+  margin: 10px;
+  border: black 1px solid;
+  border-radius: 30px;
+}
+.courslist h3 {
+  margin: 30px;
+  /* padding: 10px; */
 }
