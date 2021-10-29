@@ -1,21 +1,22 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import './AdvanceCmp.css'
 import axios from 'axios'
 
 const AdvancedCmps =()=>{
    const [ advCourse, setAdvCourse] = useState([])
-
-   const DisplayCourses =()=>{
-    axios.get('http://localhost:3001/advancedcourses')
-        .then((response)=>{
-        setAdvCourse(response.data)
-          
-     })
-
-   } 
+useEffect(()=>{
+    const displayCourses =()=>{
+        axios.get('http://localhost:3001/advancedcourses')
+             .then((response)=>{
+                  setAdvCourse(response.data)   
+         })
+       } 
+       displayCourses()  
+},[]);
+   
     return(
         <div className='advancecourses'>
-            <button onClick={DisplayCourses}> course list</button>
+           
             {advCourse.map((value,key)=>{
                     return(
                         <div  className='courses' key={key}>

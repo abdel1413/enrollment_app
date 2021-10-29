@@ -1,0 +1,38 @@
+.generalcourse {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: gray;
+  align-items: center;
+}
+
+.courslist {
+  display: flex;
+  background-color: cornflowerblue;
+  justify-content: space-evenly;
+  margin: 10px;
+  width: 700px;
+  border: black 1px solid;
+  border-radius: 30px;
+  margin-top: 0px;
+}
+.courslist h3 {
+  margin: 30px;
+  /* margin-top: 0px; */
+  /* padding: 10px; */
+}
+
+.checbxstyle {
+  padding: 10px;
+  margin-top: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: rosybrown; */
+  width: 700px;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 20px;
+  /* border: red 1px solid; */
+}
