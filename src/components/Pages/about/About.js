@@ -2,6 +2,7 @@ import React from 'react'
 import './about.css'
 import 'tachyons'
  import picture from'./abdel.png'
+ import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook} from 'react-icons/fa'
 // const picture =require('./abdel.png')
 
  const About =()=>{
@@ -19,9 +20,17 @@ import 'tachyons'
                   web development field. I am seeking internship in software development
             </p>
             <div className='imagediv' id='imagediv'>
-                 <img src={(picture)} alt=''/>   
+                 <img className='image' src={(picture)} alt=''/>   
             </div>
-            <p>contact: aboulaye.Tchakoura@lc.cuny.edu</p>
+            <div className='footer  hover-bg-white shadow-5' >
+              <p>contact: 347-518-2522 </p>
+               <a className='hover grow ' href='https://github.com/abdel1413' > <FaGithub size='2rem'/> </a>
+               <a className='hover grow ' href=' https://www.linkedin.com/in/aboulaye-tchakoura/'><FaLinkedin size='2rem'/></a>
+               <a className='hover grow ' href='aboulayet63@gmail.com'> <FaEnvelope size='2rem'/>  </a>
+               <a className='hover grow ' href='https://www.facebook.com/aboulaye.tchakoura'><FaFacebook size='2rem'/></a>
+
+            </div>
+            
         </div>
     )
 }

@@ -6,7 +6,6 @@
 }
 .paragraph {
   border: 1px black solid;
-
   width: 800px;
   justify-content: center;
   padding: 20px;
@@ -14,6 +13,23 @@
   cursor: pointer;
 }
 .imagediv {
-  /* border: 1px solid black; */
-  border-radius: "50%";
+  width: 200px;
+  /* height: 200px; */
+  margin-bottom: 30px;
+
+  clear: both;
+}
+.image {
+  border: 3px solid green;
+  border-radius: 100px;
+}
+
+.footer {
+  border: green solid 1px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: #68d471;
 }
