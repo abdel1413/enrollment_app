@@ -6,7 +6,7 @@ const SignUp =({onRouteChange})=>{
     return(
        
        
-        <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
+        <article className="br3 ba b--black-10 mv4 w-100 w-50 mw6 shadow-5 center">
         <main className="pa4 black-80 ">
             <form className="measure ">
               <fieldset id="sign_up" 
@@ -19,9 +19,9 @@ const SignUp =({onRouteChange})=>{
                     </label>
                     <input 
                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-                    type="name" 
-                    name="name" 
-                    id="name"/>
+                    type="text" 
+                    name="firstname" 
+                    id="firstname"/>
                 </div>
 
                 <div className="mt3">
@@ -31,7 +31,7 @@ const SignUp =({onRouteChange})=>{
                     </label>
                     <input 
                     className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
-                    type="lastname" 
+                    type="text" 
                     name="lastname" 
                     id="lastname"/>
                 </div>
@@ -51,19 +51,21 @@ const SignUp =({onRouteChange})=>{
                         className="db fw6 lh-copy f6" 
                         for="password">Password
                     </label>
+                    <div>
                     <input 
                     className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                     type="password" 
                     name="password"  
                     id="password"/>
-     
-                </div>
-                
+                   </div>
+                 </div>
                 </fieldset>
                 
                 <div className="lh-copy mt3 pointer">
-                    <p onClick={()=>{onRouteChange('signin')}}
-                    className="f6 link dim black db center ml10">Register</p>
+                    < input onClick={()=>{onRouteChange('home')}}
+                    className="f6 link dim black db center ml10 "
+                    type='submit'
+                    value='register' />
             
                 </div>
             </form>

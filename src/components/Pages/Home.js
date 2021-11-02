@@ -5,6 +5,7 @@ import axios from "axios";
 import SignIn from "../signInComponent/SignIn";
 import SignOut from "../SignOutComp/SignOut";
 import SignUp from "./SignUp";
+import './homestyle.css'
 
 class Home extends React.Component{
   constructor(){
@@ -32,20 +33,13 @@ class Home extends React.Component{
 
 //need to signin before you can see home screen
  onRouteChange=(route)=>{
-this.setState({route})
+this.setState({route:route})
   }
   
   render(){
   
     return (
-      <div style={{
-            display: "flex",
-            flexDirection:'column',
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: '50%',
-            color: 'green'
-            }}>
+      <div className='homestyle'>
              <SignOut onRouteChange={this.onRouteChange}/>
               {this.state.route ==='home'
               ?<div>
@@ -54,10 +48,7 @@ this.setState({route})
                 <br/>easily and quickly
                   register for their classes <br/>
                 </h1>
-                <div style={{display:'flex',
-                    flexDirection:'column', 
-                    fontSize:'25px',
-                    padding:'20px',marginTop:'20px'}}>
+                <div className='addclass'>
                     
                     <label>Classname</label>
                       <input 
@@ -84,7 +75,7 @@ this.setState({route})
                 
               :( this.state.route==='signin'
                   ? <SignIn onRouteChange={this.onRouteChange}/>
-                  : <SignUp onRouteChange={this.onRouteChange}/>
+                  : (<div><SignUp onRouteChange={this.onRouteChange}/> </div>)
                 )
               }
       </div>
