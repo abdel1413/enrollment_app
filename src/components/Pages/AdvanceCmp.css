@@ -2,18 +2,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .courses {
   display: flex;
-  background-color: cornflowerblue;
-  justify-content: space-around;
+  background-color: transparent;
+  justify-content: space-evenly;
   margin: 10px;
+  width: 700px;
   border: black 1px solid;
   border-radius: 30px;
-  /* margin-left: 40px; */
+  margin-top: 0px;
 }
 .courses h3 {
   margin: 30px;
   /* padding: 5px; */
+}
+
+.checbxstyle {
+  padding: 10px;
+  margin-top: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  /* background-color: rosybrown; */
+  width: 700px;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: 20px;
+  /* border: red 1px solid; */
 }

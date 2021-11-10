@@ -6,15 +6,17 @@ import SignIn from "../signInComponent/SignIn";
 import SignOut from "../SignOutComp/SignOut";
 import SignUp from "./SignUp";
 import './homestyle.css'
+import { Link } from "react-router-dom";
 
 class Home extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
       classname:'',
       Name:'',
       Unit:'',
-      route:'signin'
+      route:'signin',
+      isSignedIn:false
     }
   }
   
@@ -28,26 +30,39 @@ class Home extends React.Component{
       Name: this.state.Name,
       Unit:this.state.Unit
 
-    }).then(()=>{console.log("Success")})
+    }).then(()=>{alert("Success")})
   }
 
 //need to signin before you can see home screen
  onRouteChange=(route)=>{
+   if(route ==='signOut'){
+    <Link to='/signOut'></Link>
+     this.setState({isSignedIn:false})
+
+   }else if(route === 'home'){
+    <Link to='/'></Link>
+    this.setState({isSignedIn:true})
+   
+     
+   }
 this.setState({route:route})
+
   }
+
   
   render(){
-  
+ 
     return (
       <div className='homestyle'>
-             <SignOut onRouteChange={this.onRouteChange}/>
-              {this.state.route ==='home'
-              ?<div>
+        
+             <SignOut isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+             <div> home</div>
+              {/* <div>
                 <h1>Welcom to quick enrollment site</h1>
                 <h1>This app is designed to help student
                 <br/>easily and quickly
-                  register for their classes <br/>
                 </h1>
+                <h1> register for their classes without any advisor </h1>
                 <div className='addclass'>
                     
                     <label>Classname</label>
@@ -70,14 +85,10 @@ this.setState({route:route})
                         />
                       <br/>
                     <button onClick={this.Addclass}> add class</button>
-                </div>
                 </div> 
+                </div> */}
                 
-              :( this.state.route==='signin'
-                  ? <SignIn onRouteChange={this.onRouteChange}/>
-                  : (<div><SignUp onRouteChange={this.onRouteChange}/> </div>)
-                )
-              }
+              
       </div>
     );
           }

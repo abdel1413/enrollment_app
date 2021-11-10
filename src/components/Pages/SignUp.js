@@ -1,11 +1,9 @@
 import React from 'react'
 import 'tachyons'
 
-const SignUp =({onRouteChange})=>{
+const SignUp =({})=>{
 
     return(
-       
-       
         <article className="br3 ba b--black-10 mv4 w-100 w-50 mw6 shadow-5 center">
         <main className="pa4 black-80 ">
             <form className="measure ">
@@ -62,10 +60,11 @@ const SignUp =({onRouteChange})=>{
                 </fieldset>
                 
                 <div className="lh-copy mt3 pointer">
-                    < input onClick={()=>{onRouteChange('home')}}
+                    < input 
                     className="f6 link dim black db center ml10 "
                     type='submit'
                     value='register' />
+                    
             
                 </div>
             </form>
