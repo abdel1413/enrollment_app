@@ -28,9 +28,17 @@
   border: green solid 1px;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+
+  /* align-self: center;*/
   align-items: center;
-  padding: 15px;
+  padding: 10px;
   /* margin-left: 100px; */
-  background-color: #68d471;
+  background: linear-gradient(90deg, #ff1edf 0%, #04c9de 100%);
+}
+
+a {
+  justify-content: center;
+  align-content: center;
+  margin-left: 50px;
 }

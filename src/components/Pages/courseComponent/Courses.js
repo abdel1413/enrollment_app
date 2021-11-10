@@ -72,7 +72,7 @@ import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook} from 'react-icons/fa'
                                 onchange={handCheckBox}/>
                            </label> */}
                            <input
-                           
+                           className='pa3'
                           name={val}
                           value={val}
                            type="checkbox"

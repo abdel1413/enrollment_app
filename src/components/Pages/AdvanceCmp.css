@@ -27,10 +27,9 @@
 .header {
   display: flex;
   justify-content: space-evenly;
-  /* background-color: rosybrown; */
+
   width: 700px;
   padding: 0;
   margin-bottom: 0;
   margin-left: 20px;
-  /* border: red 1px solid; */
 }

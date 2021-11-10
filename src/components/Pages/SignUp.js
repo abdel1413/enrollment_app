@@ -1,7 +1,7 @@
 import React from 'react'
 import 'tachyons'
 
-const SignUp =({})=>{
+const SignUp =()=>{
 
     return(
         <article className="br3 ba b--black-10 mv4 w-100 w-50 mw6 shadow-5 center">

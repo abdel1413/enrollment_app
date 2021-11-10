@@ -4,8 +4,10 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
   
 export const Nav = styled.nav`
-  background: #63D471;
+ 
+  background: linear-gradient(90deg, #ff1edf 0%, #04c9de 100%);
   height: 85px;
+ 
   display: flex;
   justify-content: space-between;
   padding: 0.2rem calc((100vw - 1000px) / 2);
@@ -15,7 +17,8 @@ export const Nav = styled.nav`
 `;
   
 export const NavLink = styled(Link)`
-  color: #808080;
+  color: #FFF;
+  
   display: flex;
   align-items: center;
   text-decoration: none;

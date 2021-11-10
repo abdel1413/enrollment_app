@@ -20,7 +20,7 @@ import 'tachyons'
                   web development field. I am seeking internship in software development
             </p>
             <div className='imagediv' id='imagediv'>
-                 <img className='image' src={(picture)} alt=''/>   
+                 <img className='image' src={(picture)} alt='myphoto'/>   
             </div>
             <div className='footer  hover-bg-gray shadow-5' >
               <p>contact: 347-518-2522 </p>
