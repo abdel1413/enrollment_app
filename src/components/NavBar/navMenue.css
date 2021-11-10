@@ -1,9 +1,7 @@
 .navmenue {
   display: flex;
-  justify-content: space-between;
-  align-content: space-between;
-  width: "100%";
-  border: black 1px solid;
+
+  border: red 3px solid;
   @media screen and (max-width: 768px) {
     display: none;
   }

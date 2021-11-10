@@ -10,6 +10,7 @@ import React from 'react'
     NavBtn,
     NavBtnLink,
   } from "./NavbarElements";
+  import 'tachyons'
 
   import './nav.css'
   import'./navMenue.css'
@@ -24,9 +25,9 @@ const Links =()=>{
        {/* z <div className='nav'> */}
       {/* <NavMenu> */}
         <div className='navmenue'>
-          <div className='mt2'> 
-            <a href='https://www.lehman.edu/'>
-              <img src={cunyLogo1} alt='Logo'/>
+          <div className='  logodiv mv4 w-100 w-100 mw6'> 
+            <a className='logo ' href='https://www.lehman.edu/'>
+              <img   src={cunyLogo1} alt='Logo'/>
             </a>
           </div>
          
