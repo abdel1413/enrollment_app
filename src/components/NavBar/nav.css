@@ -16,23 +16,28 @@
 /* rgb(104, 212, 113)|#68D471|1000x78.6 */
 
 .logo {
-  border: solid green 2px;
-  margin-top: 10px;
-  margin-right: 0px;
+  /* border: solid green 2px; */
+  margin-top: 0px;
+  margin-right: 10px;
   margin-left: 0px;
-  padding: 10px;
+  padding: 30px;
+  padding-top: 20px;
   padding-right: 0px;
-  padding-left: 0px;
+  padding-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: "100%";
 }
 
 .logodiv {
-  /* border: solid black 5px; */
-  /* background: black; */
+  /* border: solid black 5px;
+  background: black; */
+  width: "100%";
   padding-top: 0px;
   justify-content: center;
   align-items: center;
   padding-bottom: 25px;
-  margin-top: 10px;
+  margin-top: 0px;
   margin-right: 0px;
 }

@@ -26,7 +26,7 @@ export const NavLink = styled(Link)`
 
  margin-top:0px;
  margin-bottom:0px;
- margin-left: 9px;
+ margin-left: 10px;
  margin-right:0px;
  padding:0px;
  
