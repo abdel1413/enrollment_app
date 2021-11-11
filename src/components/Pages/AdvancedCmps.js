@@ -6,7 +6,7 @@ import 'tachyons'
 
 const AdvancedCmps =()=>{
    const [ advCourse, setAdvCourse] = useState([])
-   const [checkState, setCheckState]= useState(new Array(advCourse.leh).fill(false))
+   const [isChecked, setIsChecked]= useState(new Array(advCourse.leh).fill(false))
 useEffect(()=>{
     const displayCourses =()=>{
         axios.get('http://localhost:3001/advancedcourses')
@@ -17,17 +17,18 @@ useEffect(()=>{
        displayCourses()  
 },[]);
 
-const handCheckBox =(event)=>{
+const handCheckBox =(position)=>{
     const updateState = advCourse.map((item, index)=>{
-        if(index == event){
-            // alert('you clicked on '+ event)
-            return !item
-        }else{
-            return item
-        }
+        // if(index === position){
+        //     // alert('you clicked on '+ event)
+        //     return !item
+        // }else{
+        //     return item
+        // }
+      return  index === position? !item:item;
 
-    })
-    setCheckState(updateState)
+    });
+    setIsChecked(updateState)
 }
 
    
@@ -36,17 +37,17 @@ const handCheckBox =(event)=>{
 
            <div className='style-list'>
            
-            {advCourse.map((value,key)=>{
+            {advCourse.map((value,index)=>{
                     return(
-                        <div  className=' shadow-5 courses' key={key}>
+                        <div  className=' shadow-5 courses' key={index}>
                             <div className='checkbxstyle'>
                                 <input
                                 className='checkbxstyle'
                                 name={value}
                                 value={value}
                                 type="checkbox"
-                                checked={checkState[key]}
-                                onChange={()=>handCheckBox(key)}/>
+                                checked={isChecked[index]}
+                                onChange={()=>handCheckBox(index)}/>
                                </div>
                                <h3> CLASS: {value.Classe}</h3> 
                                <h3>NAME: {value.Course_Name}</h3> 
