@@ -70,7 +70,6 @@ export const Bars = styled(FaBars)`
   
 export const NavBtn = styled.nav`
   display: flex;
-
   align-items: center;
   margin-left:0px;
   /* Third Nav */
@@ -87,8 +86,9 @@ export const NavBtnLink = styled(Link)`
   background: #808080;
   justify-content: flex-end;
   padding: 25px ;
+  margin-right:25px;
   width:100px;
-  color: #000000;
+  color: #FFF;
   outline: none;
   border: none;
   cursor: pointer;
@@ -99,6 +99,14 @@ export const NavBtnLink = styled(Link)`
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
-    color: #808080;
+    color: #000000;
   }
 `;
+
+
+// .shoppingcart {
+//   display: flex;
+//   float: right;
+//   justify-content: flex-end;
+//   align-items: center;
+// }

@@ -11,10 +11,15 @@ import React from 'react'
     NavBtnLink,
   } from "./NavbarElements";
   import 'tachyons'
+  import './navCart.css'
 
   import './nav.css'
   import'./navMenue.css'
   import cunyLogo1 from '../Logos/LehmanLogo.png'
+import { FaShopify, FaShoppingCart} from 'react-icons/fa';
+// import {MdOutlineAddShoppingCart}from 'react-iocons/md'
+// import { MdOutlineAddShoppingCart } from '@mui/icons-material'
+  
 
 
 const Links =()=>{
@@ -31,6 +36,7 @@ const Links =()=>{
             </a>
           </div>
          
+         
           <NavLink to='/' activeStyle> Home </NavLink>
           <NavLink to='/About' activeStyle> About  </NavLink>
           <NavLink to='/Courses' activeStyle>  Courses  </NavLink>
@@ -39,12 +45,17 @@ const Links =()=>{
         {/* </NavMenu> */}
       </div>
       <NavBtn>
-        <NavBtnLink to='/SignIn' activeStyle >Sign In</NavBtnLink>
+      <div className='shoppingcart f3 '> <FaShoppingCart zise='2em'></FaShoppingCart></div>
+      <span class="material-icons md-18">Cart</span>
+      <NavBtnLink to='/SignIn' activeStyle >Sign In</NavBtnLink>
       </NavBtn>
      </Nav>
      {/* </div> */}
     </div>
   )
 }
+
+<span class="nav-cart-icon nav-sprite"></span>
+
 
 export default Links;

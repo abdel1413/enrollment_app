@@ -5,31 +5,49 @@
   align-items: center;
 }
 
+.style-list {
+  /* border: red solid 3px; */
+  background: #ffffff;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 40px;
+  margin-right: 40px; */
+  width: 720px;
+  margin-bottom: 10px;
+}
 .courses {
   display: flex;
   background-color: transparent;
-  justify-content: space-evenly;
-  margin: 10px;
-  width: 700px;
-  border: black 1px solid;
-  border-radius: 30px;
-  margin-top: 0px;
+  align-items: center;
+  border: 1px solid lightgray;
+  width: 720px;
+  height: auto;
+  /* margin: 10px; */
 }
 .courses h3 {
-  margin: 30px;
-  /* padding: 5px; */
+  /* margin: 60px; */
+  margin-left: 60px;
+  margin-right: 60px;
+  align-content: center;
+  justify-items: center;
 }
 
 .checbxstyle {
-  padding: 10px;
-  margin-top: 20px;
-}
-.header {
   display: flex;
-  justify-content: space-evenly;
-
-  width: 700px;
-  padding: 0;
-  margin-bottom: 0;
   margin-left: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-right: 30px;
 }
+/* .footer {
+  border: green solid 1px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  padding: 10px;
+  
+  background: linear-gradient(90deg, #ff1edf 0%, #04c9de 100%);
+}  */

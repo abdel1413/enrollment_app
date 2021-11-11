@@ -3,6 +3,7 @@ import axios from "axios";
 import './Course.css'
 import CheckBox from './CheckBox';
 import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook} from 'react-icons/fa'
+import 'tachyons'
 
 
  const  Courses =  ()=>{
@@ -54,42 +55,35 @@ import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook} from 'react-icons/fa'
 
    return(
        <div className="generalcourse">
-           <div className='header'>
-                <h2>CLASS</h2>
-                <h2>NAME</h2>
-                <h2>UNIT</h2>
-           
-           </div> 
-           
-            {
-                courses.map((val,index)=>{
-                    return(
-                        <div className='courslist' key={index}>
-                            <div className='checbxstyle'>
-                            {/* <label>
-                                <CheckBox
-                                checked={checked}
-                                onchange={handCheckBox}/>
-                           </label> */}
-                           <input
-                           className='pa3'
-                          name={val}
-                          value={val}
-                           type="checkbox"
-                           checked={checkState[index]}
-                           onChange={()=>handCheckBox(index)}
+           <div className='style-list'>
+               
+                    {
+                        courses.map((val,index)=>{
+                            return(
+                                <div className='shadow-5 courslist' key={index}>
+                                    <div className='checbxstyle'>
+                                        {/* <label>
+                                            <CheckBox
+                                            checked={checked}
+                                            onchange={handCheckBox}/>
+                                        </label> */}
+                                        <input
+                                        className='checkbxstyle'
+                                        name={val}
+                                        value={val}
+                                        type="checkbox"
+                                        checked={checkState[index]}
+                                        onChange={()=>handCheckBox(index)}/>
+                                    </div>
+                                    <h3> CLASS: {val.Class}</h3> 
+                                    <h3>NAME: {val.Name}</h3> 
+                                    <h3>UNIT: {val.Unit}</h3> 
+                                </div>
+                            )
+                        })               
+                    }
 
-                           />
-                           </div>
-                           <h3>{val.Class}</h3> 
-                           <h3>{val.Name}</h3> 
-                           <h3>{val.Unit}</h3> 
-                        </div>
-                    )
-                })               
-            }
-
-
+            </div>
             <div className='footer hover-bg-gray shadow-5' >
               <p>contact: 347-518-2522 </p>
                <a className='hover grow ' href='https://github.com/abdel1413' > <FaGithub size='2rem'/> </a>
