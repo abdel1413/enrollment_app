@@ -1,41 +1,65 @@
 import React,{useEffect, useState} from 'react'
 import './AdvanceCmp.css'
 import axios from 'axios'
-import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook} from 'react-icons/fa'
+import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook, FaPhone, FaCommentsDollar} from 'react-icons/fa'
 import 'tachyons'
 
-const AdvancedCmps =()=>{
-   const [ advCourse, setAdvCourse] = useState([])
-   const [isChecked, setIsChecked]= useState(new Array(advCourse.leh).fill(false))
-useEffect(()=>{
-    const displayCourses =()=>{
-        axios.get('http://localhost:3001/advancedcourses')
-             .then((response)=>{
-                  setAdvCourse(response.data)   
-         })
-       } 
-       displayCourses()  
-},[]);
+const AdvancedCmps =({advCourse, isChecked, setIsChecked})=>{
+
+  
+
+
+// useEffect(()=>{
+//     const displayCourses =()=>{
+//         axios.get('http://localhost:3001/advancedcourses')
+//              .then((response)=>{
+//                   setAdvCourse(response.data) 
+//                   setIsChecked(new Array(response.data.length).fill(false))  
+//          })
+//        } 
+//        displayCourses()  
+// },[]);
 
 const handCheckBox =(position)=>{
-    const updateState = advCourse.map((item, index)=>{
-        // if(index === position){
-        //     // alert('you clicked on '+ event)
-        //     return !item
-        // }else{
-        //     return item
-        // }
-      return  index === position? !item:item;
-
-    });
+   console.log({isChecked})
+    const updateState = isChecked.map(( item, index)=>{
+        if(index === position){
+            
+            return !item
+        }else{
+           
+            return item
+            
+        }
+       
+    }
+    
+    );
+    
     setIsChecked(updateState)
-}
+    // console.log(updateState)
 
-   
+
+    // const totalItemSelected = updateState.reduce(
+    //     (total, currentState)=>{
+    //         if(currentState==true){
+    //           return total + 1;
+    //         }
+    //         return total
+    //     },
+    //     0
+    // )
+    // console.log(totalItemSelected)
+    // setTotalItems(totalItemSelected)
+} 
+
+ 
+ 
+
     return(
         <div className='advancecourses'>
 
-           <div className='style-list'>
+           <div className='list'>
            
             {advCourse.map((value,index)=>{
                     return(
@@ -43,8 +67,6 @@ const handCheckBox =(position)=>{
                             <div className='checkbxstyle'>
                                 <input
                                 className='checkbxstyle'
-                                name={value}
-                                value={value}
                                 type="checkbox"
                                 checked={isChecked[index]}
                                 onChange={()=>handCheckBox(index)}/>
@@ -61,7 +83,7 @@ const handCheckBox =(position)=>{
             </div>
 
             <div className='footer  hover-bg-light-gray shadow-5' >
-                <p>contact: 347-518-2522 </p>
+                 <FaPhone size='2em'/><p className='hover grow'>: 347-518-2522 </p>
                 <a className='hover grow ' href='https://github.com/abdel1413' > <FaGithub size='2rem'/> </a>
                 <a className='hover grow ' href=' https://www.linkedin.com/in/aboulaye-tchakoura/'><FaLinkedin size='2rem'/></a>
                 <a className='hover grow ' href='aboulayet63@gmail.com'> <FaEnvelope size='2rem'/>  </a>

@@ -22,7 +22,7 @@ import { FaShopify, FaShoppingCart} from 'react-icons/fa';
   
 
 
-const Links =()=>{
+const Links =({ totalItems })=>{
   return(
     <div>
     <Nav>
@@ -45,8 +45,10 @@ const Links =()=>{
         {/* </NavMenu> */}
       </div>
       <NavBtn>
-      <div className='shoppingcart f3 '> <FaShoppingCart zise='2em'></FaShoppingCart></div>
-      <span class="material-icons md-18">Cart</span>
+      {/* <div className='shoppingcart f3 '> <FaShoppingCart zise='2em'/></div> */}
+      <span>{totalItems}</span>
+      <div className='shoppingcart f3 '> <FaShopify zise='2em'/></div>
+      <span className="material-icons md-18">Cart</span>
       <NavBtnLink to='/SignIn' activeStyle >Sign In</NavBtnLink>
       </NavBtn>
      </Nav>
@@ -55,7 +57,7 @@ const Links =()=>{
   )
 }
 
-<span class="nav-cart-icon nav-sprite"></span>
+<span className="nav-cart-icon nav-sprite"></span>
 
 
 export default Links;

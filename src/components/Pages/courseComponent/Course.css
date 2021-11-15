@@ -9,8 +9,8 @@
   display: flex;
   margin-left: 20px;
   align-items: center;
-  margin-bottom: 20px;
-  margin-right: 30px;
+  /* margin-bottom: 20px; */
+  margin-right: 0px;
 }
 
 .courslist {

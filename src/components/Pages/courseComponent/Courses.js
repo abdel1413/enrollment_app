@@ -2,56 +2,62 @@ import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import './Course.css'
 import CheckBox from './CheckBox';
-import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook} from 'react-icons/fa'
+import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook,FaPhone} from 'react-icons/fa'
 import 'tachyons'
 
 
- const  Courses =  ()=>{
-     const [courses, setCourses]= useState([])
-
-     const [checked, setChecked] =useState(false)
-     const [ checkState, setCheckState] = useState(new Array(courses.length).fill(false))
-     const [selectedItem, setSelectedItem] = useState(0);
-    
-
-     useEffect(() => {
-       const  getCoursesData = async ()=>{
-
-        const response =  await axios.get("http://localhost:3001/courselist");
-           
-             setCourses(response.data)
-         }
-         getCoursesData();
-
-     }, []);
-
+ const  Courses =  ({checkState, setCheckState, courses})=>{
      
 
+     const [checked, setChecked] =useState(false)
+     
+     const [selectedItems, setSelectedItems] = useState(0);
+    
 
+     
      //loop thru items using map function to select prefered ones 
      //and update the state
     const handCheckBox =(position)=>{ 
-       
+        console.log({checkState})
         const updateState = checkState.map((item, index)=>{
            return index === position ? !item: item
  
         });
+        
+        console.log({updateState})
       
         setCheckState(updateState)
     
-
-
         //create function to keep track of item selected
-        // const totalSelectedItems = updateState.reduce(
-        //     (total =0, currentState, index)=>{
+        // const totalItemSelected = updateState.reduce(
+        //     (total, currentState)=>{
         //         if(currentState==true){
-        //           return  total++;
+        //           return total + 1;
         //         }
         //         return total
-        //     }
+        //     },
+        //     0
         // )
-        // setSelectedItem(totalSelectedItems) 
+
+        // setTotalItems(totalItemSelected)
+        // setSelectedItems(totalItemSelected) 
+        // console.log(totalItemSelected)
     }
+
+    //console.log(selectedItems)
+
+    // const totalPrice = updatedCheckedState.reduce(
+    //     (sum, currentState, index) => {
+    //       if (currentState === true) {
+    //         return sum + toppings[index].price;
+    //       }
+    //       return sum;
+    //     },
+    //     0
+    //   );
+  
+    //   setTotal(totalPrice);
+    // };
 
    return(
        <div className="generalcourse">
@@ -69,8 +75,7 @@ import 'tachyons'
                                         </label> */}
                                         <input
                                         className='checkbxstyle'
-                                        name={val}
-                                        value={val}
+                                       
                                         type="checkbox"
                                         checked={checkState[index]}
                                         onChange={()=>handCheckBox(index)}/>
@@ -85,7 +90,7 @@ import 'tachyons'
 
             </div>
             <div className='footer hover-bg-gray shadow-5' >
-              <p>contact: 347-518-2522 </p>
+               <FaPhone size='2rem'/><p>: 347-518-2522 </p>
                <a className='hover grow ' href='https://github.com/abdel1413' > <FaGithub size='2rem'/> </a>
                <a className='hover grow ' href=' https://www.linkedin.com/in/aboulaye-tchakoura/'><FaLinkedin size='2rem'/></a>
                <a className='hover grow ' href='aboulayet63@gmail.com'> <FaEnvelope size='2rem'/>  </a>
