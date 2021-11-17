@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import './Course.css'
-import CheckBox from './CheckBox';
+
 import {FaGithub, FaEnvelope, FaLinkedin, FaFacebook,FaPhone} from 'react-icons/fa'
 import 'tachyons'
+import  Modal  from 'react-modal';
 
 
  const  Courses =  ({checkState, setCheckState, courses})=>{
+     const [modalIsOpened, setModalIsOpend] =useState(false)
+
+
+     Modal.setAppElement("#root")
      
 
-     const [checked, setChecked] =useState(false)
-     
-     const [selectedItems, setSelectedItems] = useState(0);
-    
-
-     
      //loop thru items using map function to select prefered ones 
      //and update the state
     const handCheckBox =(position)=>{ 
@@ -28,36 +27,7 @@ import 'tachyons'
       
         setCheckState(updateState)
     
-        //create function to keep track of item selected
-        // const totalItemSelected = updateState.reduce(
-        //     (total, currentState)=>{
-        //         if(currentState==true){
-        //           return total + 1;
-        //         }
-        //         return total
-        //     },
-        //     0
-        // )
-
-        // setTotalItems(totalItemSelected)
-        // setSelectedItems(totalItemSelected) 
-        // console.log(totalItemSelected)
     }
-
-    //console.log(selectedItems)
-
-    // const totalPrice = updatedCheckedState.reduce(
-    //     (sum, currentState, index) => {
-    //       if (currentState === true) {
-    //         return sum + toppings[index].price;
-    //       }
-    //       return sum;
-    //     },
-    //     0
-    //   );
-  
-    //   setTotal(totalPrice);
-    // };
 
    return(
        <div className="generalcourse">
@@ -67,15 +37,11 @@ import 'tachyons'
                         courses.map((val,index)=>{
                             return(
                                 <div className='shadow-5 courslist' key={index}>
+                                    
                                     <div className='checbxstyle'>
-                                        {/* <label>
-                                            <CheckBox
-                                            checked={checked}
-                                            onchange={handCheckBox}/>
-                                        </label> */}
+                                        
                                         <input
                                         className='checkbxstyle'
-                                       
                                         type="checkbox"
                                         checked={checkState[index]}
                                         onChange={()=>handCheckBox(index)}/>
@@ -83,7 +49,25 @@ import 'tachyons'
                                     <h3> CLASS: {val.Class}</h3> 
                                     <h3>NAME: {val.Name}</h3> 
                                     <h3>UNIT: {val.Unit}</h3> 
-                                </div>
+                                    
+                                    <button className='modalbtn-float-right'
+                                    onClick={()=>setModalIsOpend(true)}>+</button>
+                                     <div  className='modal'>
+                                    <Modal  isOpen={modalIsOpened}>
+                                        <button className='closemodalbtn-float-right'
+                                            onClick={()=>{setModalIsOpend(false)}}>_</button> 
+                                        <div>
+                                        <div className='modalcontainer' >
+                                            <p> information dialog </p> 
+                                            <p> information dialog </p> 
+                                            <p> information dialog </p> 
+                                            <p> information dialog </p> 
+                                            <p> information dialog </p> 
+                                        </div>
+                                        </div>
+                                    </Modal>
+                                    </div>
+                                  </div>
                             )
                         })               
                     }

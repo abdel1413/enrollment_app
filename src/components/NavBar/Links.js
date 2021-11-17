@@ -16,7 +16,7 @@ import React from 'react'
   import './nav.css'
   import'./navMenue.css'
   import cunyLogo1 from '../Logos/LehmanLogo.png'
-import { FaShopify, FaShoppingCart} from 'react-icons/fa';
+import { FaShopify, FaShoppingBasket, FaShoppingCart} from 'react-icons/fa';
 // import {MdOutlineAddShoppingCart}from 'react-iocons/md'
 // import { MdOutlineAddShoppingCart } from '@mui/icons-material'
   
@@ -45,9 +45,20 @@ const Links =({ totalItems })=>{
         {/* </NavMenu> */}
       </div>
       <NavBtn>
-      {/* <div className='shoppingcart f3 '> <FaShoppingCart zise='2em'/></div> */}
-      <span>{totalItems}</span>
-      <div className='shoppingcart f3 '> <FaShopify zise='2em'/></div>
+      {/* <div className='shoppingcart f3 '>
+            <span className='counter'>{totalItems}
+            </span>
+         <FaShoppingBasket zise='2em'>
+           
+          </FaShoppingBasket>
+      </div> */}
+     
+      <div className='shoppingcart f3 '>
+      <span className='counter'>{totalItems}</span>
+         <FaShopify zise='2em'/>
+      
+         
+      </div>
       <span className="material-icons md-18">Cart</span>
       <NavBtnLink to='/SignIn' activeStyle >Sign In</NavBtnLink>
       </NavBtn>

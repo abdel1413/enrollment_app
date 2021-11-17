@@ -46,3 +46,22 @@
   justify-content: center;
   align-items: center;
 } */
+
+.closemodalbtn-float-right {
+  float: right;
+  border: none;
+  background-color: transparent;
+  padding: 50px;
+  font-size: 40px;
+  width: 50x;
+}
+.modal {
+  margin-right: 20px;
+  border: transparent;
+  background-color: transparent;
+}
+
+.modalcontainer {
+  width: 200px;
+  background-color: tomato;
+}

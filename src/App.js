@@ -56,8 +56,17 @@ const total = isChecked.filter(item => item).length + checkState.filter(item => 
       <Switch>
         <Route exact path='/'  component={Home}/>
         <Route path='/About' component={About}/>
-        <Route path='/Courses' component={() => <Courses checkState={checkState} setCheckState={setCheckState} courses={courses} setCourses={setCourses}  />} />
-        <Route path='/AdvancedCmps' component={() => <AdvancedCmps isChecked={isChecked} setIsChecked={setIsChecked} advCourse={advCourse} setAdvCourse={setAdvCourse} />} />
+       
+        <Route path='/Courses' 
+        component={() => <
+          Courses checkState={checkState} setCheckState={setCheckState}
+         courses={courses} setCourses={setCourses}  />} />
+       
+         <Route path='/AdvancedCmps' 
+        component={() => <AdvancedCmps isChecked={isChecked} 
+        setIsChecked={setIsChecked} advCourse={advCourse}
+         setAdvCourse={setAdvCourse} />} />
+
         <Route path='/SignUp' component={SignUp}/>
         <Route path='/SignIn' component={SignIn}/>
         <Route path='signOut' component={SignOut}/>
