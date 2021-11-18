@@ -8,7 +8,7 @@ import  Modal  from 'react-modal';
 
 
  const  Courses =  ({checkState, setCheckState, courses})=>{
-     const [modalIsOpened, setModalIsOpend] =useState(false)
+     const [modalIsOpened, setModalIsOpend] = useState(false)
 
 
      Modal.setAppElement("#root")
@@ -27,6 +27,12 @@ import  Modal  from 'react-modal';
       
         setCheckState(updateState)
     
+    }
+
+    
+      
+    function ToggleModal(){
+        setModalIsOpend(!modalIsOpened)
     }
 
    return(
@@ -53,18 +59,23 @@ import  Modal  from 'react-modal';
                                     <button className='modalbtn-float-right'
                                     onClick={()=>setModalIsOpend(true)}>+</button>
                                      <div  className='modal'>
-                                    <Modal  isOpen={modalIsOpened}>
-                                        <button className='closemodalbtn-float-right'
-                                            onClick={()=>{setModalIsOpend(false)}}>_</button> 
-                                        <div>
+                                    <Modal  
+                                    isOpen={modalIsOpened}
+                                    className='mymodal'
+                                    overlayClassName='myoverlay'
+                                   
+                
+                                    >
+
                                         <div className='modalcontainer' >
-                                            <p> information dialog </p> 
+                                            <p> information dialog /////////////////// </p> 
                                             <p> information dialog </p> 
                                             <p> information dialog </p> 
                                             <p> information dialog </p> 
                                             <p> information dialog </p> 
                                         </div>
-                                        </div>
+                                        <button className='closemodalbtn-float-right'
+                                            onClick={()=>setModalIsOpend(false)}>_</button> 
                                     </Modal>
                                     </div>
                                   </div>
