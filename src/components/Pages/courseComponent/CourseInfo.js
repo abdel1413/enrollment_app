@@ -153,7 +153,7 @@ const coursesInfo = {
     ],
     "MATH 313": {
       prerequisites:
-        " MAT 176, or placement by the Department of Mathematics and Computer Science",
+        "MAT 176, or placement by the Department of Mathematics and Computer Science",
       professors: [
         "Christina Sormani",
         "Chen-Yun Lin",

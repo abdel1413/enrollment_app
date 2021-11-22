@@ -78,7 +78,9 @@ const Courses = ({ checkState, setCheckState, courses }) => {
                 <p> {selectedCourse.Class}</p>
                 <p> {selectedCourse.Name} </p>
                 <p> Prerequisites</p>
+
                 <p>{coursesInfo[selectedCourse.Class].prerequisites}</p>
+
                 <p>Professors STR:</p>
                 <p>{coursesInfo[selectedCourse.Class].professorsSTR}</p>
                 <p>Professors:</p>
