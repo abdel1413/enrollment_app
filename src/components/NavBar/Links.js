@@ -17,6 +17,7 @@ import React from 'react'
   import'./navMenue.css'
   import cunyLogo1 from '../Logos/LehmanLogo.png'
 import { FaShopify, FaShoppingBasket, FaShoppingCart} from 'react-icons/fa';
+import SwitchButton from '../SwitchComp/SwitchButton';
 // import {MdOutlineAddShoppingCart}from 'react-iocons/md'
 // import { MdOutlineAddShoppingCart } from '@mui/icons-material'
   
@@ -52,12 +53,10 @@ const Links =({ totalItems })=>{
            
           </FaShoppingBasket>
       </div> */}
-     
+      <div> <SwitchButton label='switch'/> </div>
       <div className='shoppingcart f3 '>
-      <span className='counter'>{totalItems}</span>
-         <FaShopify zise='2em'/>
-      
-         
+        <span className='counter'>{totalItems}</span>
+         <FaShopify zise='2em'/>  
       </div>
       <span className="material-icons md-18">Cart</span>
       <NavBtnLink to='/SignIn' activeStyle >Sign In</NavBtnLink>

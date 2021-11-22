@@ -51,6 +51,20 @@ const SignUp =()=>{
                     </label>
                     <div>
                     <input 
+                    className="passwd b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                    type="password" 
+                    name="password"  
+                    id="password"/>
+                   </div>
+                 </div>
+
+                 <div className="mv3">
+                    <label 
+                        className=" confirmpasswd db fw6 lh-copy f6" 
+                        for="confirmpasswd"> Confirm password
+                    </label>
+                    <div>
+                    <input 
                     className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                     type="password" 
                     name="password"  
@@ -65,7 +79,6 @@ const SignUp =()=>{
                     type='submit'
                     value='register' />
                     
-            
                 </div>
             </form>
           </main>
