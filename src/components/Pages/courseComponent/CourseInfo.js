@@ -191,11 +191,29 @@ const coursesInfo = {
     "CMP 334": {
       prerequisites:
         "CMP 167 (Programming Methods I), CMP 232 (Elementary Discrete Structures & Applications to Computer Science) or Departmental permission.",
-      professors: ["Steven Fulakeza", "St John", "Bowen Alpern"],
+      professors: ["Steven Fulakeza", "Dr. Katherine St. John", "Bowen Alpern"],
     },
     "CMP 338": {
       prerequisites: "CMP 232, and CMP 326 or CMP 168.",
       professors: ["Brian Murphy"],
+    },
+    "CMP 405": {
+      prerequisites: "CMP 334 and CMP 338.",
+      professors: ["Steven Fulakeza", "Fakhouri, Sameh"],
+    },
+    "CMP 410": {
+      prerequisites: "CMP 338 and MAT 313.",
+      professors: [" Matthew Johnson", "Gwang Jung"],
+    },
+
+    "CMP 420": {
+      prerequisites: "CMP 338.",
+      professors: ["Steven Fulakeza", "Dr. Katherine St. John"],
+    },
+
+    "CMP 426": {
+      prerequisites: " CMP 334 and CMP 338.",
+      professors: [" Megan Owen", "Steven Fulakeza"],
     },
   },
 };
