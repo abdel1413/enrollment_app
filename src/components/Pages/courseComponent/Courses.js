@@ -81,12 +81,14 @@ const Courses = ({ checkState, setCheckState, courses }) => {
 
                 <p>{coursesInfo[selectedCourse.Class].prerequisites}</p>
 
-                <p>Professors STR:</p>
-                <p>{coursesInfo[selectedCourse.Class].professorsSTR}</p>
+                {/* <p>Professors STR:</p>
+                <p>{coursesInfo[selectedCourse.Class].professorsSTR}</p> */}
                 <p>Professors:</p>
-                {coursesInfo[selectedCourse.Class].professors.map((proName) => (
-                  <div>{proName}</div>
-                ))}
+                {coursesInfo[selectedCourse.Class].professors.map(
+                  (profName) => (
+                    <div>{profName}</div>
+                  )
+                )}
               </div>
               <button
                 className="closemodalbtn-float-right"
