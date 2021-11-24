@@ -66,6 +66,7 @@ const Courses = ({ checkState, setCheckState, courses }) => {
             </div>
           );
         })}
+
         {modalIsOpened && (
           <div className="modal">
             <Modal
@@ -83,6 +84,7 @@ const Courses = ({ checkState, setCheckState, courses }) => {
 
                 {/* <p>Professors STR:</p>
                 <p>{coursesInfo[selectedCourse.Class].professorsSTR}</p> */}
+
                 <p>Professors:</p>
                 {coursesInfo[selectedCourse.Class].professors.map(
                   (profName) => (
@@ -100,6 +102,7 @@ const Courses = ({ checkState, setCheckState, courses }) => {
           </div>
         )}
       </div>
+
       <div className="footer hover-bg-gray shadow-5">
         <FaPhone size="2rem" />
         <p>: 347-518-2522 </p>

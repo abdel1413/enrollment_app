@@ -32,6 +32,13 @@
   align-content: center;
   justify-items: center;
 }
+button {
+  margin-right: 15px;
+  border: none;
+  background-color: #ffffff;
+  font-weight: bold;
+  font-size: 20px;
+}
 
 .checbxstyle {
   display: flex;
@@ -40,6 +47,51 @@
   /* margin-bottom: 20px; */
   margin-right: 0px;
 }
+
+.modalbtn-float-right {
+  margin-right: 20px;
+}
+button .closemodalbtn-float-right {
+  float: right;
+  background-color: transparent;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  color: #ffffff;
+}
+.modal {
+  /* margin-right: 30px; */
+  border: transparent;
+  background-color: #ffffff;
+}
+
+/* .modalcontainer {
+  width: 200px;
+  background-color: tomato;
+} */
+
+.mymodal {
+  position: fixed;
+  top: "50%";
+  left: "50%";
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  background: linear-gradient(90deg, #ff5edf 0%, #04c8de 100%);
+  overflow: auto;
+  border-radius: 10px;
+  outline: none;
+  padding: 20px;
+}
+
+.myoverlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
 .footer {
   border: green solid 1px;
   width: 100%;
