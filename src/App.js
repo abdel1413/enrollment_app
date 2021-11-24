@@ -2,7 +2,7 @@ import "./App.css";
 import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Links from "./components/NavBar/Links";
-import Home from "./components/Pages/Home";
+import Home from "./components/HomeComp/Home";
 import About from "./components/Pages/about/About";
 import AdvancedCmps from "./components/Pages/advCourseComp/AdvancedCmps";
 import SignUp from "./components/Pages/SignUp";
