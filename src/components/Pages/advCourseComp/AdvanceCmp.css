@@ -51,14 +51,14 @@ button {
 .modalbtn-float-right {
   margin-right: 20px;
 }
-button .closemodalbtn-float-right {
+/* .closemodalbtn-float-right {
   float: right;
   background-color: transparent;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   border: none;
   color: #ffffff;
-}
+} */
 .modal {
   /* margin-right: 30px; */
   border: transparent;

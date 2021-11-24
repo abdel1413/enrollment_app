@@ -16,6 +16,10 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCmp, setSelectedCmp] = useState({});
 
+  console.log({ advCmpInfo });
+  // console.log(selectedCmp.Classe);
+  console.log(advCmpInfo[selectedCmp.Classe]);
+
   Modal.setAppElement("#root");
 
   // useEffect(()=>{
@@ -98,7 +102,16 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
               <div className="modalcontainer">
                 <p>{selectedCmp.Classe}</p>
                 <p>{selectedCmp.Course_Name}</p>
-                {/* {advCmpInfo[selectedCmp.Classe].prerequisites} */}
+                <p>Prerequisites:</p>
+                <p>{advCmpInfo[selectedCmp.Classe].prerequisites}</p>
+                <p>Professors:</p>
+                <p>
+                  {advCmpInfo[selectedCmp.Classe].professors.map(
+                    (profnames) => (
+                      <div>{profnames}</div>
+                    )
+                  )}
+                </p>
               </div>
               <button
                 className="closemodalbtn-float-right"

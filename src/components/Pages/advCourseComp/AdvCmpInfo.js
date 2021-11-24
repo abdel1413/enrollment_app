@@ -1,10 +1,10 @@
 const advCmpInfo = {
-  "CMP 342": {
+  CMP_342: {
     prerequisites: "CMP 326 or CMP 168.",
     professors: ["Eva-Maria Sofiano"],
   },
 
-  "CMP 408": {
+  CMP_408: {
     prerequisites: "CMP 338.",
     professors: ["Francis Cornacchiulo"],
   },
@@ -22,7 +22,7 @@ const advCmpInfo = {
   CMP_428: {
     prerequisites:
       "CMP 338 and a strong foundation in object-oriented programming techniques.and co-requisite MAT 226",
-    professors: [],
+    professors: ["Brian Murphy"],
   },
 
   CMP_430: {
@@ -31,7 +31,7 @@ const advCmpInfo = {
   },
 
   CMP_464: {
-    prerequisites: "",
+    prerequisites: "none",
     professors: [
       "Liang Zhao",
       "Mingxian Zhong",
@@ -47,7 +47,7 @@ const advCmpInfo = {
   },
 
   CMP_485: {
-    prerequisites: "",
+    prerequisites: "Departmental permission required.",
 
     professors: [
       "Sameh Fakhouri",
