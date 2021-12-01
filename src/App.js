@@ -20,6 +20,12 @@ function App() {
     new Array(courses.length).fill(false)
   );
 
+  // Adv Cmps
+  const [advCourse, setAdvCourse] = useState([]);
+  const [isChecked, setIsChecked] = useState(
+    new Array(advCourse.length).fill(false)
+  );
+
   useEffect(() => {
     const getCoursesData = async () => {
       const response = await axios.get("http://localhost:3001/courselist");
@@ -39,17 +45,41 @@ function App() {
     displayCourses();
   }, []);
 
-  // Adv Cmps
-  const [advCourse, setAdvCourse] = useState([]);
-  const [isChecked, setIsChecked] = useState(
-    new Array(advCourse.length).fill(false)
-  );
+  // console.log(isChecked);
+  // console.log(checkState);
+
+  // for (let check in isChecked) {
+  //   console.log("this is total");
+  //   if (isChecked) {
+  //     console.log(check);
+  //   }
+  // }
+
+  // for (let i in advCourse) {
+  //   console.log("course is here");
+  //   if (isChecked === i) {
+  //     console.log(advCourse.Classe);
+  //   }
+  // }
+
+  // console.log({ advCourse });
+  advCourse.map((ind, key) => {
+    // console.log(key);
+    console.log(ind);
+    for (let i in isChecked) {
+      if (key === i) {
+        console.log(ind);
+      }
+    }
+  });
 
   // Keep track of selected items
   const total =
     isChecked.filter((item) => item).length +
     checkState.filter((item) => item).length;
   //setTotalItems(total)
+
+  console.log({ total });
 
   return (
     <Router>
@@ -93,3 +123,13 @@ function App() {
 }
 
 export default App;
+
+/**1. Intro to team (Pictures, Names, Role)
+2. Hook/Opening + Capstone Challenge Question
+3. Empathize/User Research: What research did you do? With who? What were the user needs you uncovered?
+4. Problem Statement: What was the problem you identified? Why is it important to address?
+5. Solution: What is your prototype (high level)?
+6. Solution: Share your prototype—how does it solve the problem?
+7. Refine: What feedback did you get on the prototype? How would you change the solution?
+8. Next steps: How would this be implemented?
+9. Summary + Thank You: Summarize main points [where you started, what you worked through, where you landed] */

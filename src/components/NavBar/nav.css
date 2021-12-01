@@ -42,3 +42,8 @@
 .counter {
   color: red;
 }
+
+.shoppingcart {
+  border: turquoise solid 1px;
+  background-color: white;
+}

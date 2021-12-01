@@ -5,13 +5,10 @@
 } */
 
 .homepage {
-  /* display: "flex";
-  justify-content: "center"; */
-  /* align-items: "center"; */
   border: 1px solid #e93d3d;
   background-image: url("Lehman.png");
   background-size: cover;
-  height: 500px;
+  height: 600px;
   width: "100%";
   margin: 0px;
 }
