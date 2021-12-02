@@ -1,10 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "tachyons";
-import Home from "../HomeComp/Home";
-import SignUp from "../Pages/SignUp";
+// import Home from "../HomeComp/Home";
+// import SignUp from "../Pages/SignUp";
+import App from "../../App";
 import { Link } from "react-router-dom";
+import Home from "../HomeComp/Home";
 
 const SignIn = () => {
+  const [signInEmail, setSignInEmail] = useState("");
+  const [signInPassword, SetSignInPassword] = useState("");
+
+  const onEmailChange = (event) => {
+    // console.log(event.target.value);
+    setSignInEmail(event.target.value);
+  };
+  const onPasswordChange = (event) => {
+    // console.log(event.target.value);
+    SetSignInPassword(event.target.value);
+  };
+
+  const onSubmitSignIn = () => {
+    console.log(signInEmail);
+    console.log(signInPassword);
+    // <Link to="/"></Link>;
+    return <Home />;
+  };
   return (
     <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
       <main className="pa4 black-80 ">
@@ -16,6 +36,7 @@ const SignIn = () => {
                 Email
               </label>
               <input
+                onChange={onEmailChange}
                 className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="email"
                 name="email-address"
@@ -27,6 +48,7 @@ const SignIn = () => {
                 Password
               </label>
               <input
+                onChange={onPasswordChange}
                 className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                 type="password"
                 name="password"
@@ -38,7 +60,14 @@ const SignIn = () => {
             </div>
           </fieldset>
 
-          <Link to="/"> sign in </Link>
+          {/* <Link to="/"> sign in </Link> */}
+
+          <input
+            className="ct bg-transparent "
+            onClick={onSubmitSignIn}
+            type="submit"
+            value="Sign In"
+          />
 
           <div className="lh-copy mt3 ">
             {/* < p  className="signup f6 link dim black db center ml10 pointer"

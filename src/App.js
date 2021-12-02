@@ -13,7 +13,6 @@ import SignOut from "./components/SignOutComp/SignOut";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [totalItems, setTotalItems] = useState(0);
   // courses
   const [courses, setCourses] = useState([]);
   const [checkState, setCheckState] = useState(
@@ -43,7 +42,22 @@ function App() {
         });
     };
     displayCourses();
+
+    //testing to see if i can get both data fron back end and those i
+    //created inside the server
+
+    // const JustToTest = () => {
+    //   fetch("http://localhost:3001/")
+    //     .then((response) => response.json())
+    //     .then((data) => console.log(data));
+    // };
+    // JustToTest();
   }, []);
+
+  //empty array [] passed as 2nd arg is to tell useEffect that
+  //your effect  is not dependant on any of value from props or state
+  //so do not re-run otherwise useEffect will run on every update
+  //on the component
 
   // console.log(isChecked);
   // console.log(checkState);
@@ -65,10 +79,10 @@ function App() {
   // console.log({ advCourse });
   advCourse.map((ind, key) => {
     // console.log(key);
-    console.log(ind);
+    // console.log(ind);
     for (let i in isChecked) {
       if (key === i) {
-        console.log(ind);
+        // console.log(ind);
       }
     }
   });
@@ -79,7 +93,7 @@ function App() {
     checkState.filter((item) => item).length;
   //setTotalItems(total)
 
-  console.log({ total });
+  // console.log({ total });
 
   return (
     <Router>

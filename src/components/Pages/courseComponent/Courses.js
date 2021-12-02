@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
+
 import "./Course.css";
 
 import {
@@ -32,9 +32,9 @@ const Courses = ({ checkState, setCheckState, courses }) => {
     setCheckState(updateState);
   };
 
-  function ToggleModal() {
-    setModalIsOpend(!modalIsOpened);
-  }
+  // function ToggleModal() {
+  //   setModalIsOpend(!modalIsOpened);
+  // }
 
   return (
     <div className="generalcourse">

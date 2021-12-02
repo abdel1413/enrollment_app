@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./AdvanceCmp.css";
-import axios from "axios";
+
 import {
   FaGithub,
   FaEnvelope,
