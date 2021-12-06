@@ -15,7 +15,7 @@ import SwitchButton from "../SwitchComp/SwitchButton";
 // import {MdOutlineAddShoppingCart}from 'react-iocons/md'
 // import { MdOutlineAddShoppingCart } from '@mui/icons-material'
 
-const Links = ({ totalItems }) => {
+const Links = ({ isSignin, totalItems }) => {
   const displayitems = document.getElementById("shoppingcart");
   // console.log({ displayitems });
   // displayitems.addEventListener(onclick, ItiemsInCart);
@@ -35,7 +35,6 @@ const Links = ({ totalItems }) => {
               <img src={cunyLogo1} alt="Logo" />
             </a>
           </div>
-
           <NavLink to="/" activeStyle>
             {" "}
             Home{" "}
@@ -44,14 +43,18 @@ const Links = ({ totalItems }) => {
             {" "}
             About{" "}
           </NavLink>
-          <NavLink to="/Courses" activeStyle>
-            {" "}
-            Courses{" "}
-          </NavLink>
-          <NavLink to="/AdvancedCmps" activeStyle>
-            {" "}
-            AdvancedCmps
-          </NavLink>
+          {isSignin && (
+            <React.Fragment>
+              <NavLink to="/Courses" activeStyle>
+                {" "}
+                Courses{" "}
+              </NavLink>
+              <NavLink to="/AdvancedCmps" activeStyle>
+                {" "}
+                AdvancedCmps
+              </NavLink>
+            </React.Fragment>
+          )}
           <NavLink to="/SignUp" activeStyle>
             Sign Up{" "}
           </NavLink>

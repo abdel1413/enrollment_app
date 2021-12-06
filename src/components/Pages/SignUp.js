@@ -1,6 +1,8 @@
 import { Link } from "@material-ui/core";
 import React from "react";
 import "tachyons";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
   constructor() {
@@ -11,6 +13,8 @@ class SignUp extends React.Component {
       email: "",
       password: "",
       confirmpassword: "",
+      errorMassage: "",
+      redirect: false,
     };
   }
 
@@ -44,16 +48,42 @@ class SignUp extends React.Component {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         email: this.state.email,
+        password: this.state.password,
       }),
-    });
+    })
+      .then(async (response) => {
+        console.log(response);
+        if (response.status === 200) {
+          // let history = useHistory();
+          // history.push("/");
+          this.setState({ redirect: true }, () => {
+            this.props.setIsSigin(true);
+          });
+        }
+        if (response.status === 400) {
+          const msg = await response.json();
+          this.setState({ errorMassage: msg });
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
     //home
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50 mw6 shadow-5 center">
         <main className="pa4 black-80 ">
-          <form className="measure ">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+            className="measure "
+          >
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
               <legend className="f1 fw6 ph0 mh0 center">Register</legend>
               <div className="mt3">
@@ -129,9 +159,10 @@ class SignUp extends React.Component {
             </fieldset>
 
             <div className="lh-copy mt3 pointer">
+              {this.state.errorMassage && <p>{this.state.errorMassage}</p>}
               <input
                 className="f6 link dim black db center ml10 "
-                // type="submit"
+                type="submit"
                 value="register"
                 onClick={this.onSubmit}
               />

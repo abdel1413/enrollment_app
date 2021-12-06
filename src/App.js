@@ -24,6 +24,7 @@ function App() {
   const [isChecked, setIsChecked] = useState(
     new Array(advCourse.length).fill(false)
   );
+  const [isSignin, setIsSigin] = useState(false);
 
   useEffect(() => {
     const getCoursesData = async () => {
@@ -97,7 +98,7 @@ function App() {
 
   return (
     <Router>
-      <Links totalItems={total} />
+      <Links isSignin={isSignin} totalItems={total} />
 
       <Switch>
         <Route exact path="/" component={Home} />
@@ -127,7 +128,10 @@ function App() {
           )}
         />
 
-        <Route path="/SignUp" component={SignUp} />
+        <Route
+          path="/SignUp"
+          component={() => <SignUp setIsSigin={setIsSigin} />}
+        />
         <Route path="/SignIn" component={SignIn} />
         <Route path="signOut" component={SignOut} />
         <Route component={NotFound} />
