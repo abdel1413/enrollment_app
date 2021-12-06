@@ -1,7 +1,7 @@
 import { Link } from "@material-ui/core";
 import React from "react";
 import "tachyons";
-import { useHistory } from "react-router-dom";
+
 import { Redirect } from "react-router-dom";
 
 class SignUp extends React.Component {
@@ -19,7 +19,7 @@ class SignUp extends React.Component {
   }
 
   onFirstNameChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({ firstName: event.target.value });
   };
 
@@ -35,7 +35,7 @@ class SignUp extends React.Component {
     this.setState({ password: e.target.value });
   };
 
-  onchconfirmChange = (e) => {
+  onconfirmChange = (e) => {
     this.setState({ confirmpassword: e.target.value });
   };
 
@@ -68,7 +68,6 @@ class SignUp extends React.Component {
       .catch((e) => {
         console.log(e);
       });
-    //home
   };
 
   render() {
@@ -152,14 +151,16 @@ class SignUp extends React.Component {
                     type="password"
                     name="confirmpassword"
                     id="confirmpassword"
-                    onChange={this.onchconfirmChange}
+                    onChange={this.onconfirmChange}
                   />
                 </div>
               </div>
             </fieldset>
 
             <div className="lh-copy mt3 pointer">
-              {this.state.errorMassage && <p>{this.state.errorMassage}</p>}
+              {this.state.errorMassage && (
+                <p className=" dim dark-red tc p2">{this.state.errorMassage}</p>
+              )}
               <input
                 className="f6 link dim black db center ml10 "
                 type="submit"

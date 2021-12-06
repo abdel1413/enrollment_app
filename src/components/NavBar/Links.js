@@ -10,7 +10,7 @@ import "./navCart.css";
 import "./nav.css";
 import "./navMenue.css";
 import cunyLogo1 from "../Logos/LehmanLogo.png";
-import { FaShopify, FaShoppingBasket, FaShoppingCart } from "react-icons/fa";
+import { FaShopify } from "react-icons/fa";
 import SwitchButton from "../SwitchComp/SwitchButton";
 // import {MdOutlineAddShoppingCart}from 'react-iocons/md'
 // import { MdOutlineAddShoppingCart } from '@mui/icons-material'
