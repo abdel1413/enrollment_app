@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { NavLink  } from 'react-router-dom'
 // import { Nav, Bars, NavMenu,NavBtn,NavBtnLink
 //  } from './NavbarElements'
@@ -16,6 +16,8 @@ import SwitchButton from "../SwitchComp/SwitchButton";
 // import { MdOutlineAddShoppingCart } from '@mui/icons-material'
 
 const Links = ({ isSignin, totalItems }) => {
+  const totalItemsSelected = totalItems.filter((item) => item);
+  const [shouldShowItems, setShouldShowItems] = useState(false);
   const displayitems = document.getElementById("shoppingcart");
   // console.log({ displayitems });
   // displayitems.addEventListener(onclick, ItiemsInCart);
@@ -43,7 +45,7 @@ const Links = ({ isSignin, totalItems }) => {
             {" "}
             About{" "}
           </NavLink>
-          {isSignin && (
+          {(isSignin || true) && (
             <React.Fragment>
               <NavLink to="/Courses" activeStyle>
                 {" "}
@@ -74,13 +76,34 @@ const Links = ({ isSignin, totalItems }) => {
           </div>
           <div className="shoppingcart f3 " id="shoppingcart">
             <span className="counter" id="counter">
-              {totalItems}
+              {totalItemsSelected.length}
             </span>
-            <FaShopify zise="2em" className="displayItems" id="displayItems">
-              {totalItems}
-            </FaShopify>
+            <div
+              className="shoppicart-items-wrapper"
+              onClick={() =>
+                setShouldShowItems(
+                  !shouldShowItems && totalItemsSelected.length >= 1
+                )
+              }
+            >
+              <FaShopify zise="2em" className="displayItems" id="displayItems">
+                {totalItemsSelected.length}
+              </FaShopify>
+              {shouldShowItems && (
+                <div className="shoppicart-items-container">
+                  {totalItemsSelected.map((item) => (
+                    <div className="shoppingcard-items">
+                      <div>{item.Classe || item.Class}</div>
+                      <div>{item.Course_Name || item.Name}</div>
+                      <div>{item.Course_Unit || item.Unit}</div>
+                    </div>
+                  ))}
+                  {totalItemsSelected.length === 0 && <p>Your cart is empty</p>}
+                </div>
+              )}
+            </div>
 
-            <span className="material-icons md-18">Cart</span>
+            <span className="material-icons md-18"></span>
           </div>
           <NavBtnLink to="/SignIn" activeStyle>
             Sign In

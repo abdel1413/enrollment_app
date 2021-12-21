@@ -16,15 +16,18 @@ function App() {
   // courses
   const [courses, setCourses] = useState([]);
   const [checkState, setCheckState] = useState(
+    // TODO: rename to this -> coursesSelected everywhere
     new Array(courses.length).fill(false)
   );
 
   // Adv Cmps
   const [advCourse, setAdvCourse] = useState([]);
   const [isChecked, setIsChecked] = useState(
+    // TODO: rename to -> advanceCoursesSelected everywhere
     new Array(advCourse.length).fill(false)
   );
   const [isSignin, setIsSigin] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const getCoursesData = async () => {
@@ -43,16 +46,6 @@ function App() {
         });
     };
     displayCourses();
-
-    //testing to see if i can get both data fron back end and those i
-    //created inside the server
-
-    // const JustToTest = () => {
-    //   fetch("http://localhost:3001/")
-    //     .then((response) => response.json())
-    //     .then((data) => console.log(data));
-    // };
-    // JustToTest();
   }, []);
 
   //empty array [] passed as 2nd arg is to tell useEffect that
@@ -64,41 +57,52 @@ function App() {
   // console.log(checkState);
 
   // for (let check in isChecked) {
-  //   console.log("this is total");
+  //   //   console.log("this is total");
   //   if (isChecked) {
-  //     console.log(check);
+  //     console.log("thos are checked items", isChecked[check]);
   //   }
   // }
 
-  // for (let i in advCourse) {
-  //   console.log("course is here");
-  //   if (isChecked === i) {
-  //     console.log(advCourse.Classe);
-  //   }
-  // }
+  for (let i in advCourse) {
+    if (isChecked) {
+      console.log(advCourse[i].classe);
+    }
+  }
 
   // console.log({ advCourse });
-  advCourse.map((ind, key) => {
-    // console.log(key);
-    // console.log(ind);
-    for (let i in isChecked) {
-      if (key === i) {
-        // console.log(ind);
-      }
-    }
-  });
+  // advCourse.map((item, key) => {
+  //   // console.log(key);
+  //   // console.log(ind);
+  //   for (let i in isChecked) {
+  //     if (item === i) {
+  //       console.log("this one is checked", isChecked[item]);
+  //     }
+  //   }
+  // });
 
   // Keep track of selected items
-  const total =
-    isChecked.filter((item) => item).length +
-    checkState.filter((item) => item).length;
+  // const total =
+  //   isChecked.filter((item) => item).length +
+  //   checkState.filter((item) => item).length;
+
   //setTotalItems(total)
 
+  // console.log(
+  //   isChecked.filter((item) => {
+  //     console.log(item);
+  //   })
+  // );
+
+  // console.log({ isChecked });
   // console.log({ total });
 
   return (
     <Router>
-      <Links isSignin={isSignin} totalItems={total} />
+      <Links
+        isSignin={isSignin}
+        totalItems={isChecked.concat(checkState)}
+        isLoggedIn={isLoggedIn}
+      />
 
       <Switch>
         <Route exact path="/" component={Home} />
@@ -132,8 +136,11 @@ function App() {
           path="/SignUp"
           component={() => <SignUp setIsSigin={setIsSigin} />}
         />
-        <Route path="/SignIn" component={SignIn} />
-        <Route path="signOut" component={SignOut} />
+        <Route
+          path="/SignIn"
+          component={() => <SignIn setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route path="signOut" component={() => <SignOut />} />
         <Route component={NotFound} />
       </Switch>
     </Router>

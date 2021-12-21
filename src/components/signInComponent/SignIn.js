@@ -1,49 +1,113 @@
-import React, { useState } from "react";
+import React from "react";
 import "tachyons";
 // import Home from "../HomeComp/Home";
 // import SignUp from "../Pages/SignUp";
-import App from "../../App";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Home from "../HomeComp/Home";
+import axios from "axios";
 
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signInEmail: "",
-      signInPassword: "",
+      email: "",
+      password: "",
+      erroMessage: "",
+      notExistingMsg: "",
+      loginStatus: "",
+      login: "",
+      redirect: false,
     };
+
+    axios.defaults.withCredentials = true;
   }
 
-  // const [signInEmail, setSignInEmail] = useState("");
-  // const [signInPassword, SetSignInPassword] = useState("");
-
   onEmailChange = (event) => {
-    //  console.log(this.event.target.value);
-    // setSignInEmail(event.target.value);
-    this.setState({ signInEmail: event.target.value });
+    this.setState({ email: event.target.value });
   };
   onPasswordChange = (event) => {
-    // console.log(event.target.value);
-    // SetSignInPassword(event.target.value);
-    this.setState({ signInPassword: event.target.value });
+    this.setState({ password: event.target.value });
   };
+
+  // getUserstatus = () => {
+  //   axios
+  //     .get("http://localhost/3001/signin", { login: "Logout" })
+  //     .then((response) => {
+  //       console.log(response.data);
+  //       this.setState({ loginStatus: response.data.user[0] });
+  //     });
+  // };
+
+  componentDidMount() {
+    // this.getUserstatus();
+    axios
+      .get("http://localhost/3001/signin}")
+      .then(async (response) => {
+        if (response.status === 200) {
+          const loginLink = await response.json();
+
+           this.setState({ login: loginLink });
+          // this.setState({ redirect: true }, () => {
+          //   this.props.setIsLoggedIn(true);
+          // });
+
+
+        }
+      })
+      .catch((error) => console.log(error));
+  }
 
   onSubmitSignIn = () => {
-    console.log(this.state);
-    fetch("http://localhost:3001/signin", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword,
-      }),
-    });
+    // console.log(this.state);
+    axios
+      .post("http://localhost:3001/signin", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: this.state.email,
+          password: this.state.password,
+        }),
+      })
+      .then(async (response) => {
+        console.log("response ", response);
+        console.log(response.status);
+        if (response.status === 200) {
+          const lg = await response.json();
 
-    <Link to="/" />;
-    //  <Home />;
+          if (lg.logged) {
+            // window.location.href = "/";
+            this.setState({ redirect: true }, () => {
+              this.props.setIsLoggedIn(true);
+            });
+          } else {
+            window.location.href = "/Signin";
+          }
+          //console.log("this part", lg);
+          // this.setState({ login: lg });
+          //this.setState({ redirect: true }, () => {
+          // this.props.setIsSignIn(true);
+          //this.setState({ login: lg });
+          //console.log("you are logged in", lg);
+          //});
+        }
+
+        if (response.status === 401) {
+          const msg = await response.json();
+          this.setState({ erroMessage: msg });
+        } else if (response.status === 404) {
+          const notexisting = await response.json();
+          this.setState({ notExistingMsg: notexisting });
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80 ">
@@ -79,18 +143,22 @@ class SignIn extends React.Component {
               </div>
             </fieldset>
 
-            <Link to="/"> sign in </Link>
+            {/* <Link to="/"> sign in </Link> */}
+            {this.state.erroMessage && (
+              <p className=" dim dark-red tc p2">{this.state.erroMessage}</p>
+            )}
 
             <input
-              className="ct bg-transparent "
+              className="signin tc bg-transparent ml5 "
               onClick={this.onSubmitSignIn}
               value="Sign In"
             />
 
-            <div className="lh-copy mt3 ">
-              {/* < p  className="signup f6 link dim black db center ml10 pointer"
-                        onClick={onRouteChange}>Register</p>
-                          */}
+            {/* {this.state.notExistingMsg && alert(this.state.notExistingMsg)} */}
+            {this.state.notExistingMsg && (
+              <p className="dim red tc p2">{this.state.notExistingMsg}</p>
+            )}
+            <div className="lh-copy mt3  ml5 ">
               <Link to="/SignUp">Register</Link>
             </div>
           </form>

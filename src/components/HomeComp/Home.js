@@ -7,6 +7,7 @@ import SignUp from "../Pages/SignUp";
 import "./homestyle.css";
 import { Link } from "react-router-dom";
 import "tachyons";
+import Cookies from "js-cookie";
 
 class Home extends React.Component {
   constructor(props) {
@@ -47,6 +48,12 @@ class Home extends React.Component {
   };
 
   render() {
+    const sid = Cookies.get("session") || "";
+
+    if (sid) {
+      console.log("test");
+    }
+
     return (
       <div className="homepage">
         <SignOut

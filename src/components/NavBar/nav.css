@@ -44,6 +44,38 @@
 }
 
 .shoppingcart {
-  border: turquoise solid 1px;
-  background-color: white;
+  display: flex;
+  border: turquoise solid 0px;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoppicart-items-wrapper {
+  position: relative;
+}
+
+.shoppicart-items-container {
+  /* max-width: 1000px; */
+  min-height: 100px;
+  padding: 15px;
+  background-color: rgb(245, 238, 238);
+  position: absolute;
+  top: 51px;
+  left: -500px;
+
+  border: red solid 2px;
+
+  margin-right: 20px;
+}
+
+.shoppingcard-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid green;
+  padding: 5px;
+}
+.shoppingcard-items div {
+  margin-left: 10px;
+  margin-right: 10px;
 }

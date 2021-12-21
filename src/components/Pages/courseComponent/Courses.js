@@ -17,24 +17,25 @@ import coursesInfo from "./CourseInfo";
 const Courses = ({ checkState, setCheckState, courses }) => {
   const [modalIsOpened, setModalIsOpend] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
+  const [selected, setSelected] = useState({});
 
   Modal.setAppElement("#root");
 
   //loop thru items using map function to select prefered ones
   //and update the state
   const handCheckBox = (position) => {
-    console.log({ checkState });
     const updateState = checkState.map((item, index) => {
-      return index === position ? !item : item;
+      // return index === position ? !item : item;
+      if (index === position) {
+        return item ? false : courses[position];
+      } else {
+        return item;
+      }
     });
+    console.log(position);
 
-    console.log({ updateState });
     setCheckState(updateState);
   };
-
-  // function ToggleModal() {
-  //   setModalIsOpend(!modalIsOpened);
-  // }
 
   return (
     <div className="generalcourse">

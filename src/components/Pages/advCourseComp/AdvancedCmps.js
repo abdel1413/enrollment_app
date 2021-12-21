@@ -37,11 +37,13 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
     console.log({ isChecked });
     const updateState = isChecked.map((item, index) => {
       if (index === position) {
-        return !item;
+        return item ? false : advCourse[position];
       } else {
         return item;
       }
     });
+    // console.log("Jeff");
+    // console.log(updateState);
 
     setIsChecked(updateState);
     // console.log(updateState)
@@ -69,7 +71,7 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
                 <input
                   className="checkbxstyle"
                   type="checkbox"
-                  checked={isChecked[index]}
+                  checked={isChecked[index] ? true : false}
                   onChange={() => handCheckBox(index)}
                 />
               </div>
