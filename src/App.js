@@ -60,7 +60,7 @@ function App() {
     <Router>
       <Links
         isSignin={isSignin}
-        // totalItems={advCourseSelected.concat(courseSelected)}
+        //totalItems={advCourseSelected.concat(courseSelected)}
         totalCourseSelected={courseSelected}
         totalAdvCourseSelected={advCourseSelected}
         isLoggedIn={isLoggedIn}

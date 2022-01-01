@@ -70,7 +70,7 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
                 <input
                   className="checkbxstyle"
                   type="checkbox"
-                  checked={isChecked[index] ? true : false}
+                  checked={isChecked[index]}
                   onChange={() => handCheckBox(index)}
                 />
               </div>

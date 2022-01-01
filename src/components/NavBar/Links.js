@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-// import { NavLink  } from 'react-router-dom'
-// import { Nav, Bars, NavMenu,NavBtn,NavBtnLink
-//  } from './NavbarElements'
-//  NavMenu,
+
 import { Nav, NavLink, Bars, NavBtn, NavBtnLink } from "./NavbarElements";
 import "tachyons";
 import "./navCart.css";
@@ -12,9 +9,7 @@ import cunyLogo1 from "../Logos/LehmanLogo.png";
 import { FaShopify } from "react-icons/fa";
 import { Icon } from "@iconify/react";
 import SwitchButton from "../SwitchComp/SwitchButton";
-import { remove, set } from "js-cookie";
-import { Flag, FlagTwoTone } from "@material-ui/icons";
-import { TableSortLabel } from "@material-ui/core";
+import { set } from "js-cookie";
 
 const Links = ({
   isSignin,
@@ -23,21 +18,35 @@ const Links = ({
   totalAdvCourseSelected,
   courseIsChecked,
   setCourseIsChecked,
-  isChecked,
-  setIsChecked,
+  IsChecked,
+  setIschecked,
 }) => {
   // let totalItemsSelected = totalItems.filter((item) => item);
   let totalCourseItems = totalCourseSelected.filter((item) => item);
   let totalAdvCoureItems = totalAdvCourseSelected.filter((item) => item);
   const [shouldShowItems, setShouldShowItems] = useState(false);
-  //let totalItemsSelected = totalCourseItems.concat(totalAdvCoureItems);
 
   const handleDelete = (item) => {
-    setCourseIsChecked(() => totalCourseItems.filter((i) => i !== item));
-    setIsChecked(() => totalAdvCoureItems.filter((i) => i !== item));
-    // setShouldShowItems(remainingItems);
+    // setCourseIsChecked(() => totalCourseItems.filter((i) => i !== item));
+    // setAdvIsChecked(() => totalAdvCoureItems.filter((i) => i !== item));
+    // // setShouldShowItems(remainingItems);
+    // setShouldShowItems(totalAdvCoureItems.concat(totalCourseItems));
 
-    setShouldShowItems(totalAdvCoureItems.concat(totalCourseItems));
+    const isNormalCourse = totalCourseSelected.filter(
+      (normalCourse) => normalCourse.Name === item.Name
+    ).length;
+
+    if (isNormalCourse) {
+      const updatedCourse = totalCourseSelected.map((course) =>
+        course.Name === item.Name ? false : course
+      );
+      setCourseIsChecked(updatedCourse);
+    } else {
+      const updatedCourse = totalAdvCourseSelected.map((course) =>
+        course.Course_Name === item.Course_Name ? false : course
+      ).length;
+      setIschecked(updatedCourse);
+    }
   };
 
   return (
@@ -77,11 +86,6 @@ const Links = ({
           {/* </NavMenu> */}
         </div>
         <NavBtn>
-          {/* <div className='shoppingcart f3 '>
-            <span className='counter'>{totalItems}
-            </span>
-         
-      </div> */}
           <div>
             {" "}
             <SwitchButton label="switch" />{" "}
@@ -121,9 +125,8 @@ const Links = ({
                         />
                       </div>
                     ))}
-                  {totalAdvCoureItems.length + totalCourseItems.length < 1 && (
-                    <p className="emptycart">Your cart is empty</p>
-                  )}
+                  {totalAdvCoureItems.length + totalCourseItems.length ===
+                    0 && <p className="emptycart">Your cart is empty</p>}
                 </div>
               )}
             </div>
