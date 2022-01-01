@@ -6,31 +6,45 @@ import React, { useState } from "react";
 import { Nav, NavLink, Bars, NavBtn, NavBtnLink } from "./NavbarElements";
 import "tachyons";
 import "./navCart.css";
-
 import "./nav.css";
 import "./navMenue.css";
 import cunyLogo1 from "../Logos/LehmanLogo.png";
 import { FaShopify } from "react-icons/fa";
+import { Icon } from "@iconify/react";
 import SwitchButton from "../SwitchComp/SwitchButton";
-// import {MdOutlineAddShoppingCart}from 'react-iocons/md'
-// import { MdOutlineAddShoppingCart } from '@mui/icons-material'
+import { remove, set } from "js-cookie";
+import { Flag, FlagTwoTone } from "@material-ui/icons";
+import { TableSortLabel } from "@material-ui/core";
 
-const Links = ({ isSignin, totalItems }) => {
-  const totalItemsSelected = totalItems.filter((item) => item);
+const Links = ({
+  isSignin,
+  totalItems,
+  totalCourseSelected,
+  totalAdvCourseSelected,
+  courseIsChecked,
+  setCourseIsChecked,
+  isChecked,
+  setIsChecked,
+}) => {
+  // let totalItemsSelected = totalItems.filter((item) => item);
+  let totalCourseItems = totalCourseSelected.filter((item) => item);
+  let totalAdvCoureItems = totalAdvCourseSelected.filter((item) => item);
   const [shouldShowItems, setShouldShowItems] = useState(false);
-  const displayitems = document.getElementById("shoppingcart");
-  // console.log({ displayitems });
-  // displayitems.addEventListener(onclick, ItiemsInCart);
+  //let totalItemsSelected = totalCourseItems.concat(totalAdvCoureItems);
 
-  const ItiemsInCart = () => {
-    alert("it is listening");
+  const handleDelete = (item) => {
+    setCourseIsChecked(() => totalCourseItems.filter((i) => i !== item));
+    setIsChecked(() => totalAdvCoureItems.filter((i) => i !== item));
+    // setShouldShowItems(remainingItems);
+
+    setShouldShowItems(totalAdvCoureItems.concat(totalCourseItems));
   };
+
   return (
     <div>
       <Nav>
         <Bars />
-        {/* z <div className='nav'> */}
-        {/* <NavMenu> */}
+
         <div className="navmenue">
           <div className="  logodiv mv4 w-100 w-100 mw6">
             <a className="logo " href="https://www.lehman.edu/">
@@ -66,9 +80,7 @@ const Links = ({ isSignin, totalItems }) => {
           {/* <div className='shoppingcart f3 '>
             <span className='counter'>{totalItems}
             </span>
-         <FaShoppingBasket zise='2em'>
-           
-          </FaShoppingBasket>
+         
       </div> */}
           <div>
             {" "}
@@ -76,34 +88,45 @@ const Links = ({ isSignin, totalItems }) => {
           </div>
           <div className="shoppingcart f3 " id="shoppingcart">
             <span className="counter" id="counter">
-              {totalItemsSelected.length}
+              {totalAdvCoureItems.length + totalCourseItems.length}
             </span>
             <div
               className="shoppicart-items-wrapper"
-              onClick={() =>
+              onClick={() => {
                 setShouldShowItems(
-                  !shouldShowItems && totalItemsSelected.length >= 1
-                )
-              }
+                  !shouldShowItems && totalCourseItems && totalAdvCoureItems
+                );
+              }}
             >
               <FaShopify zise="2em" className="displayItems" id="displayItems">
-                {totalItemsSelected.length}
+                {totalCourseItems.length && totalAdvCoureItems.length}
               </FaShopify>
               {shouldShowItems && (
                 <div className="shoppicart-items-container">
-                  {totalItemsSelected.map((item) => (
-                    <div className="shoppingcard-items">
-                      <div>{item.Classe || item.Class}</div>
-                      <div>{item.Course_Name || item.Name}</div>
-                      <div>{item.Course_Unit || item.Unit}</div>
-                    </div>
-                  ))}
-                  {totalItemsSelected.length === 0 && <p>Your cart is empty</p>}
+                  {totalAdvCoureItems
+                    .concat(totalCourseItems)
+                    .map((item, key) => (
+                      <div key={key} className="shoppingcard-items" id={key}>
+                        <div>{item.Classe || item.Class}</div>
+                        <div>{item.Course_Name || item.Name}</div>
+                        <div>{item.Course_Unit || item.Unit}</div>
+
+                        <Icon
+                          onClick={() => handleDelete(item)}
+                          className="delet hover-red"
+                          icon="fa:trash-o"
+                          color="black"
+                          width="20"
+                          height="15"
+                        />
+                      </div>
+                    ))}
+                  {totalAdvCoureItems.length + totalCourseItems.length < 1 && (
+                    <p className="emptycart">Your cart is empty</p>
+                  )}
                 </div>
               )}
             </div>
-
-            <span className="material-icons md-18"></span>
           </div>
           <NavBtnLink to="/SignIn" activeStyle>
             Sign In

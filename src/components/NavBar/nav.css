@@ -55,26 +55,35 @@
 }
 
 .shoppicart-items-container {
-  /* max-width: 1000px; */
+  max-width: 1000px;
   min-height: 100px;
   padding: 15px;
-  background-color: rgb(245, 238, 238);
+  background-color: whitesmoke;
   position: absolute;
   top: 51px;
   left: -500px;
+  border: black solid 1px;
+}
 
-  border: red solid 2px;
+.emptycart {
+  color: red;
+}
 
-  margin-right: 20px;
+.shoppicart-items-container :hover {
+  background: black;
+  color: white;
 }
 
 .shoppingcard-items {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid green;
-  padding: 5px;
+  border: 1px solid yellowgreen;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 0px;
 }
+
 .shoppingcard-items div {
   margin-left: 10px;
   margin-right: 10px;

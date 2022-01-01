@@ -16,9 +16,9 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCmp, setSelectedCmp] = useState({});
 
-  console.log({ advCmpInfo });
+  // console.log({ advCmpInfo });
   // console.log(selectedCmp.Classe);
-  console.log(advCmpInfo[selectedCmp.Classe]);
+  // console.log(advCmpInfo[selectedCmp.Classe]);
 
   Modal.setAppElement("#root");
 
@@ -34,7 +34,7 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
   // },[]);
 
   const handCheckBox = (position) => {
-    console.log({ isChecked });
+    // console.log({ isChecked });
     const updateState = isChecked.map((item, index) => {
       if (index === position) {
         return item ? false : advCourse[position];
@@ -57,7 +57,6 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
     //     },
     //     0
     // )
-    // console.log(totalItemSelected)
     // setTotalItems(totalItemSelected)
   };
 

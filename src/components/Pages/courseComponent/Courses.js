@@ -14,17 +14,17 @@ import Modal from "react-modal";
 
 import coursesInfo from "./CourseInfo";
 
-const Courses = ({ checkState, setCheckState, courses }) => {
+const Courses = ({ courseIsChecked, setCourseIsChecked, courses }) => {
   const [modalIsOpened, setModalIsOpend] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
-  const [selected, setSelected] = useState({});
+  // const [selected, setSelected] = useState({});
 
   Modal.setAppElement("#root");
 
   //loop thru items using map function to select prefered ones
   //and update the state
   const handCheckBox = (position) => {
-    const updateState = checkState.map((item, index) => {
+    const updateState = courseIsChecked.map((item, index) => {
       // return index === position ? !item : item;
       if (index === position) {
         return item ? false : courses[position];
@@ -32,9 +32,9 @@ const Courses = ({ checkState, setCheckState, courses }) => {
         return item;
       }
     });
-    console.log(position);
+    // console.log(position);
 
-    setCheckState(updateState);
+    setCourseIsChecked(updateState);
   };
 
   return (
@@ -47,7 +47,7 @@ const Courses = ({ checkState, setCheckState, courses }) => {
                 <input
                   className="checkbxstyle"
                   type="checkbox"
-                  checked={checkState[index]}
+                  checked={courseIsChecked[index]}
                   onChange={() => handCheckBox(index)}
                 />
               </div>

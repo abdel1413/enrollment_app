@@ -15,15 +15,13 @@ import { useState, useEffect } from "react";
 function App() {
   // courses
   const [courses, setCourses] = useState([]);
-  const [checkState, setCheckState] = useState(
-    // TODO: rename to this -> coursesSelected everywhere
+  const [courseSelected, setCourseSelected] = useState(
     new Array(courses.length).fill(false)
   );
 
   // Adv Cmps
   const [advCourse, setAdvCourse] = useState([]);
-  const [isChecked, setIsChecked] = useState(
-    // TODO: rename to -> advanceCoursesSelected everywhere
+  const [advCourseSelected, setAdvCourseSelected] = useState(
     new Array(advCourse.length).fill(false)
   );
   const [isSignin, setIsSigin] = useState(false);
@@ -33,7 +31,7 @@ function App() {
     const getCoursesData = async () => {
       const response = await axios.get("http://localhost:3001/courselist");
       setCourses(response.data);
-      setCheckState(new Array(response.data.length).fill(false));
+      setCourseSelected(new Array(response.data.length).fill(false));
     };
     getCoursesData();
 
@@ -42,7 +40,7 @@ function App() {
         .get("http://localhost:3001/advancedcourses")
         .then((response) => {
           setAdvCourse(response.data);
-          setIsChecked(new Array(response.data.length).fill(false));
+          setAdvCourseSelected(new Array(response.data.length).fill(false));
         });
     };
     displayCourses();
@@ -53,55 +51,23 @@ function App() {
   //so do not re-run otherwise useEffect will run on every update
   //on the component
 
-  // console.log(isChecked);
-  // console.log(checkState);
-
-  // for (let check in isChecked) {
-  //   //   console.log("this is total");
-  //   if (isChecked) {
-  //     console.log("thos are checked items", isChecked[check]);
-  //   }
-  // }
-
-  for (let i in advCourse) {
-    if (isChecked) {
-      console.log(advCourse[i].classe);
-    }
-  }
-
-  // console.log({ advCourse });
-  // advCourse.map((item, key) => {
-  //   // console.log(key);
-  //   // console.log(ind);
-  //   for (let i in isChecked) {
-  //     if (item === i) {
-  //       console.log("this one is checked", isChecked[item]);
-  //     }
-  //   }
-  // });
-
   // Keep track of selected items
   // const total =
   //   isChecked.filter((item) => item).length +
   //   checkState.filter((item) => item).length;
 
-  //setTotalItems(total)
-
-  // console.log(
-  //   isChecked.filter((item) => {
-  //     console.log(item);
-  //   })
-  // );
-
-  // console.log({ isChecked });
-  // console.log({ total });
-
   return (
     <Router>
       <Links
         isSignin={isSignin}
-        totalItems={isChecked.concat(checkState)}
+        // totalItems={advCourseSelected.concat(courseSelected)}
+        totalCourseSelected={courseSelected}
+        totalAdvCourseSelected={advCourseSelected}
         isLoggedIn={isLoggedIn}
+        courseIsChecked={courseSelected}
+        setCourseIsChecked={setCourseSelected}
+        isChecked={advCourseSelected}
+        setIsChecked={setAdvCourseSelected}
       />
 
       <Switch>
@@ -112,8 +78,8 @@ function App() {
           path="/Courses"
           component={() => (
             <Courses
-              checkState={checkState}
-              setCheckState={setCheckState}
+              courseIsChecked={courseSelected}
+              setCourseIsChecked={setCourseSelected}
               courses={courses}
               setCourses={setCourses}
             />
@@ -124,8 +90,8 @@ function App() {
           path="/AdvancedCmps"
           component={() => (
             <AdvancedCmps
-              isChecked={isChecked}
-              setIsChecked={setIsChecked}
+              isChecked={advCourseSelected}
+              setIsChecked={setAdvCourseSelected}
               advCourse={advCourse}
               setAdvCourse={setAdvCourse}
             />
