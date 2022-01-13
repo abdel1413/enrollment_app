@@ -9,7 +9,6 @@ import cunyLogo1 from "../Logos/LehmanLogo.png";
 import { FaShopify } from "react-icons/fa";
 import { Icon } from "@iconify/react";
 import SwitchButton from "../SwitchComp/SwitchButton";
-import { set } from "js-cookie";
 
 const Links = ({
   isSignin,
@@ -27,28 +26,23 @@ const Links = ({
   const [shouldShowItems, setShouldShowItems] = useState(false);
 
   const handleDelete = (item) => {
-    // setCourseIsChecked(() => totalCourseItems.filter((i) => i !== item));
-    // setAdvIsChecked(() => totalAdvCoureItems.filter((i) => i !== item));
-    // // setShouldShowItems(remainingItems);
-    // setShouldShowItems(totalAdvCoureItems.concat(totalCourseItems));
-
-    const isNormalCourse = totalCourseSelected.filter(
+    const isNormalCourse = totalCourseItems.filter(
       (normalCourse) => normalCourse.Name === item.Name
     ).length;
 
     if (isNormalCourse) {
-      const updatedCourse = totalCourseSelected.map((course) =>
+      const updatedCourse = totalCourseItems.map((course) =>
         course.Name === item.Name ? false : course
       );
       setCourseIsChecked(updatedCourse);
     }
 
-    const advcourse = totalAdvCourseSelected.filter(
+    const advcourse = totalAdvCoureItems.filter(
       (advc) => advc.Course_Name === item.Course_Name
     ).length;
 
     if (advcourse) {
-      const updateAdvCourse = totalAdvCourseSelected.map((adv) =>
+      const updateAdvCourse = totalAdvCoureItems.map((adv) =>
         adv.Course_Name === item.Course_Name ? false : adv
       );
       setIsChecked(updateAdvCourse);
