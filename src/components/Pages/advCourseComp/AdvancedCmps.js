@@ -12,7 +12,7 @@ import "tachyons";
 import Modal from "react-modal";
 import advCmpInfo from "./AdvCmpInfo";
 
-const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
+const AdvancedCmps = ({ isChecked, setIsChecked, advCourse }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCmp, setSelectedCmp] = useState({});
 
@@ -70,7 +70,7 @@ const AdvancedCmps = ({ advCourse, isChecked, setIsChecked }) => {
                 <input
                   className="checkbxstyle"
                   type="checkbox"
-                  checked={isChecked[index]}
+                  checked={isChecked[index] ? true : false}
                   onChange={() => handCheckBox(index)}
                 />
               </div>

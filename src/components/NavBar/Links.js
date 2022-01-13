@@ -19,7 +19,7 @@ const Links = ({
   courseIsChecked,
   setCourseIsChecked,
   IsChecked,
-  setIschecked,
+  setIsChecked,
 }) => {
   // let totalItemsSelected = totalItems.filter((item) => item);
   let totalCourseItems = totalCourseSelected.filter((item) => item);
@@ -41,11 +41,17 @@ const Links = ({
         course.Name === item.Name ? false : course
       );
       setCourseIsChecked(updatedCourse);
-    } else {
-      const updatedCourse = totalAdvCourseSelected.map((course) =>
-        course.Course_Name === item.Course_Name ? false : course
-      ).length;
-      setIschecked(updatedCourse);
+    }
+
+    const advcourse = totalAdvCourseSelected.filter(
+      (advc) => advc.Course_Name === item.Course_Name
+    ).length;
+
+    if (advcourse) {
+      const updateAdvCourse = totalAdvCourseSelected.map((adv) =>
+        adv.Course_Name === item.Course_Name ? false : adv
+      );
+      setIsChecked(updateAdvCourse);
     }
   };
 
@@ -92,18 +98,18 @@ const Links = ({
           </div>
           <div className="shoppingcart f3 " id="shoppingcart">
             <span className="counter" id="counter">
-              {totalAdvCoureItems.length + totalCourseItems.length}
+              {totalCourseItems.length + totalAdvCoureItems.length}
             </span>
             <div
               className="shoppicart-items-wrapper"
               onClick={() => {
                 setShouldShowItems(
-                  !shouldShowItems && totalCourseItems && totalAdvCoureItems
+                  !shouldShowItems && totalAdvCoureItems && totalCourseItems
                 );
               }}
             >
               <FaShopify zise="2em" className="displayItems" id="displayItems">
-                {totalCourseItems.length && totalAdvCoureItems.length}
+                {totalAdvCoureItems.length && totalCourseItems.length}
               </FaShopify>
               {shouldShowItems && (
                 <div className="shoppicart-items-container">
