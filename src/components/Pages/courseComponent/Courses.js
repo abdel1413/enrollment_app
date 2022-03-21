@@ -9,15 +9,14 @@ import {
   FaFacebook,
   FaPhone,
 } from "react-icons/fa";
+
 import "tachyons";
 import Modal from "react-modal";
-
 import coursesInfo from "./CourseInfo";
 
 const Courses = ({ courseIsChecked, setCourseIsChecked, courses }) => {
   const [modalIsOpened, setModalIsOpend] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
-  // const [selected, setSelected] = useState({});
 
   Modal.setAppElement("#root");
 

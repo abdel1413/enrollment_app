@@ -16,10 +16,6 @@ const AdvancedCmps = ({ isChecked, setIsChecked, advCourse }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCmp, setSelectedCmp] = useState({});
 
-  // console.log({ advCmpInfo });
-  // console.log(selectedCmp.Classe);
-  // console.log(advCmpInfo[selectedCmp.Classe]);
-
   Modal.setAppElement("#root");
 
   // useEffect(()=>{

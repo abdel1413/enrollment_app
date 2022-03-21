@@ -10,8 +10,12 @@ import { FaShopify } from "react-icons/fa";
 import { Icon } from "@iconify/react";
 import SwitchButton from "../SwitchComp/SwitchButton";
 
+const isSignin = localStorage.getItem("issignedIn");
+// const isSignin =
+//   document.cookie.split("=").length && document.cookie.split("=")[1];
+
 const Links = ({
-  isSignin,
+  // isSignin,
   totalItems,
   totalCourseSelected,
   totalAdvCourseSelected,
@@ -23,12 +27,15 @@ const Links = ({
   // let totalItemsSelected = totalItems.filter((item) => item);
   let totalCourseItems = totalCourseSelected.filter((item) => item);
   let totalAdvCoureItems = totalAdvCourseSelected.filter((item) => item);
+
   const [shouldShowItems, setShouldShowItems] = useState(false);
 
   const handleDelete = (item) => {
     const isNormalCourse = totalCourseItems.filter(
       (normalCourse) => normalCourse.Name === item.Name
     ).length;
+
+    //console.log(isNormalCourse);
 
     if (isNormalCourse) {
       const updatedCourse = totalCourseItems.map((course) =>
@@ -53,7 +60,6 @@ const Links = ({
     <div>
       <Nav>
         <Bars />
-
         <div className="navmenue">
           <div className="  logodiv mv4 w-100 w-100 mw6">
             <a className="logo " href="https://www.lehman.edu/">
@@ -68,7 +74,7 @@ const Links = ({
             {" "}
             About{" "}
           </NavLink>
-          {(isSignin || true) && (
+          {isSignin && (
             <React.Fragment>
               <NavLink to="/Courses" activeStyle>
                 {" "}
@@ -131,12 +137,17 @@ const Links = ({
               )}
             </div>
           </div>
-          <NavBtnLink to="/SignIn" activeStyle>
-            Sign In
-          </NavBtnLink>
+          {isSignin ? (
+            <NavBtnLink to="/SignOut" activeStyle>
+              Sign Out
+            </NavBtnLink>
+          ) : (
+            <NavBtnLink to="/SignIn" activeStyle>
+              Sign In
+            </NavBtnLink>
+          )}
         </NavBtn>
       </Nav>
-      {/* </div> */}
     </div>
   );
 };

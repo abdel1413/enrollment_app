@@ -1,9 +1,7 @@
 import React from "react";
 import "./Home.css";
 import axios from "axios";
-import SignIn from "../signInComponent/SignIn";
-import SignOut from "../SignOutComp/SignOut";
-import SignUp from "../Pages/SignUp";
+
 import "./homestyle.css";
 import { Link } from "react-router-dom";
 import "tachyons";
@@ -38,7 +36,7 @@ class Home extends React.Component {
   //need to signin before you can see home screen
   onRouteChange = (route) => {
     if (route === "signOut") {
-      <Link to="/signOut"></Link>;
+      <Link to="/SignOut"></Link>;
       this.setState({ isSignedIn: false });
     } else if (route === "home") {
       <Link to="/"></Link>;
@@ -56,11 +54,6 @@ class Home extends React.Component {
 
     return (
       <div className="homepage">
-        <SignOut
-          isSignedIn={this.state.isSignedIn}
-          onRouteChange={this.onRouteChange}
-        />
-
         {/* <div> home</div> */}
         <div className="bgimagestyle">
           <p className=" hover-bg-black pa2  shadow-5 textcontainer">

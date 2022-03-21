@@ -19,11 +19,6 @@ class SignUp extends React.Component {
   }
 
   onFirstNameChange = (event) => {
-    let f = document.getElementById("firstname").value;
-    // if (this.state.firstName === "") {
-    //   console.log("this first value", f);
-    //   console.log(" first name must not be empty");
-    // }
     this.setState({ firstName: event.target.value });
   };
 
@@ -59,7 +54,7 @@ class SignUp extends React.Component {
     let firstnameerror = document.getElementById("firstnameerror");
     let lastnameerror = document.getElementById("lastnameerror");
     let emailerror = document.getElementById("emailerror");
-    let invalidemail = document.getElementById("invalidemail");
+    // let invalidemail = document.getElementById("invalidemail");
     let passwderror = document.getElementById("passwderror");
     let confirmerror = document.getElementById("confirmerror");
 

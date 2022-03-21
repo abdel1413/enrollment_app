@@ -10,6 +10,7 @@ import SignIn from "./components/signInComponent/SignIn";
 import Courses from "./components/Pages/courseComponent/Courses";
 import NotFound from "./components/Pages/NotFound";
 import SignOut from "./components/SignOutComp/SignOut";
+
 import { useState, useEffect } from "react";
 
 function App() {
@@ -26,10 +27,13 @@ function App() {
   );
   const [isSignin, setIsSigin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //const [isSignOut, setIsSignOut] = useState(false);
 
   useEffect(() => {
     const getCoursesData = async () => {
-      const response = await axios.get("http://localhost:3001/courselist");
+      const response = await axios.get("http://localhost:3001/courselist", {
+        withCredentials: false,
+      });
       setCourses(response.data);
       setCourseSelected(new Array(response.data.length).fill(false));
     };
@@ -37,7 +41,9 @@ function App() {
 
     const displayCourses = async () => {
       await axios
-        .get("http://localhost:3001/advancedcourses")
+        .get("http://localhost:3001/advancedcourses", {
+          withCredentials: false,
+        })
         .then((response) => {
           setAdvCourse(response.data);
           setAdvCourseSelected(new Array(response.data.length).fill(false));
@@ -73,7 +79,6 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/About" component={About} />
-
         <Route
           path="/Courses"
           component={() => (
@@ -85,7 +90,6 @@ function App() {
             />
           )}
         />
-
         <Route
           path="/AdvancedCmps"
           component={() => (
@@ -97,16 +101,16 @@ function App() {
             />
           )}
         />
-
         <Route
           path="/SignUp"
           component={() => <SignUp setIsSigin={setIsSigin} />}
         />
+        <Route path="/SignOut" exact component={SignOut} />
+
         <Route
           path="/SignIn"
           component={() => <SignIn setIsLoggedIn={setIsLoggedIn} />}
         />
-        <Route path="signOut" component={() => <SignOut />} />
         <Route component={NotFound} />
       </Switch>
     </Router>
