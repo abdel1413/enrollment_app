@@ -62,7 +62,7 @@ const AdvancedCmps = ({ isChecked, setIsChecked, advCourse }) => {
         {advCourse.map((value, index) => {
           return (
             <div className=" shadow-5 courses" key={index}>
-              <div className="checkbxstyle">
+              <div className="checkbxstyle" key={index}>
                 <input
                   className="checkbxstyle"
                   type="checkbox"

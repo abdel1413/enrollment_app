@@ -1,35 +1,33 @@
+import { FaBars } from "react-icons/fa";
+import { NavLink as Link } from "react-router-dom";
+import styled from "styled-components";
 
-import { FaBars } from 'react-icons/fa';
-import { NavLink as Link } from 'react-router-dom';
-import styled from 'styled-components';
-  
 export const Nav = styled.nav`
- 
   background: linear-gradient(90deg, #ff1edf 0%, #04c9de 100%);
   height: 85px;
- width:100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-left:10px;
- /* padding: 0.2rem calc((100vw - 1000px) /1);*/
+  margin-left: 10px;
+  /* padding: 0.2rem calc((100vw - 1000px) /1);*/
   /*z-index: 12;*/
   /* Third Nav */
   /* justify-content: flex-start; */
 `;
-  
+
 export const NavLink = styled(Link)`
-  color: #FFF;
+  color: #fff;
   /*padding: 0 1rem;*/
- /*border:3px solid yellow;*/
-  width:100%;
+  /*border:3px solid yellow;*/
+  width: 100%;
   display: flex;
 
- margin-top:0px;
- margin-bottom:0px;
- margin-left: 10px;
- margin-right:0px;
- padding:0px;
- 
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+  margin-right: 0px;
+  padding: 0px;
+
   align-items: center;
   text-decoration: none;
   /*height: 100%;*/
@@ -38,7 +36,7 @@ export const NavLink = styled(Link)`
     color: #000000;
   }
 `;
-  
+
 export const Bars = styled(FaBars)`
   display: none;
 
@@ -53,7 +51,7 @@ export const Bars = styled(FaBars)`
     cursor: pointer;
   }
 `;
-  
+
 // export const NavMenu = styled.div`
 //   display: flex;
 //   align-items: center;
@@ -67,11 +65,11 @@ export const Bars = styled(FaBars)`
 //     display: none;
 //   }
 // `;
-  
+
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
-  margin-left:0px;
+  margin-left: 0px;
   /* Third Nav */
   /* justify-content: flex-end;
   width: 100vw; */
@@ -79,16 +77,15 @@ export const NavBtn = styled.nav`
     display: none;
   }
 `;
-  
-export const NavBtnLink = styled(Link)`
 
+export const NavBtnLink = styled(Link)`
   border-radius: 10px;
   background: #808080;
   justify-content: flex-end;
-  padding: 25px ;
-  margin-right:25px;
-  width:100px;
-  color: #FFF;
+  padding: 25px;
+  margin-right: 25px;
+  width: 120px;
+  color: #fff;
   outline: none;
   border: none;
   cursor: pointer;
@@ -102,7 +99,6 @@ export const NavBtnLink = styled(Link)`
     color: #000000;
   }
 `;
-
 
 // .shoppingcart {
 //   display: flex;

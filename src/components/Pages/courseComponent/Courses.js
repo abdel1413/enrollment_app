@@ -42,7 +42,7 @@ const Courses = ({ courseIsChecked, setCourseIsChecked, courses }) => {
         {courses.map((val, index) => {
           return (
             <div className="shadow-5 courslist" key={index}>
-              <div className="checbxstyle">
+              <div className="checbxstyle" key={index}>
                 <input
                   className="checkbxstyle"
                   type="checkbox"
