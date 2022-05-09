@@ -1,15 +1,15 @@
 import "./App.css";
 import axios from "axios";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Links from "./components/NavBar/Links";
-import Home from "./components/HomeComp/Home";
+import Home from "./components/HomeComp/Home.js";
 import About from "./components/Pages/about/About";
 import AdvancedCmps from "./components/Pages/advCourseComp/AdvancedCmps";
 import SignUp from "./components/Pages/SignUp";
 import SignIn from "./components/signInComponent/SignIn";
 import Courses from "./components/Pages/courseComponent/Courses";
 import NotFound from "./components/Pages/NotFound";
-import SignOut from "./components/SignOutComp/SignOut";
+//import SignOut from "./components/SignOutComp/SignOut";
 
 import { useState, useEffect } from "react";
 
@@ -34,6 +34,7 @@ function App() {
       const response = await axios.get("http://localhost:3001/courselist", {
         withCredentials: false,
       });
+      console.log(response.data);
       setCourses(response.data);
       setCourseSelected(new Array(response.data.length).fill(false));
     };
@@ -75,44 +76,42 @@ function App() {
         isChecked={advCourseSelected}
         setIsChecked={setAdvCourseSelected}
       />
+      {/* <Home /> */}
 
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/About" component={About} />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
         <Route
           path="/Courses"
-          component={() => (
+          element={
             <Courses
               courseIsChecked={courseSelected}
               setCourseIsChecked={setCourseSelected}
               courses={courses}
               setCourses={setCourses}
             />
-          )}
+          }
         />
         <Route
           path="/AdvancedCmps"
-          component={() => (
+          element={
             <AdvancedCmps
               isChecked={advCourseSelected}
               setIsChecked={setAdvCourseSelected}
               advCourse={advCourse}
               setAdvCourse={setAdvCourse}
             />
-          )}
+          }
         />
-        <Route
-          path="/SignUp"
-          component={() => <SignUp setIsSigin={setIsSigin} />}
-        />
-        <Route path="/SignOut" exact component={SignOut} />
+        <Route path="/SignUp" element={<SignUp setIsSigin={setIsSigin} />} />
+        {/* <Route path="/SignOut" exact element={SignOut} /> */}
 
         <Route
           path="/SignIn"
-          component={() => <SignIn setIsLoggedIn={setIsLoggedIn} />}
+          element={<SignIn setIsLoggedIn={setIsLoggedIn} />}
         />
-        <Route component={NotFound} />
-      </Switch>
+        <Route element={<NotFound />} />
+      </Routes>
     </Router>
   );
 }

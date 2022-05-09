@@ -13,6 +13,7 @@ import SwitchButton from "../SwitchComp/SwitchButton";
 const isSignin = localStorage.getItem("issignedIn");
 // const isSignin =
 //   document.cookie.split("=").length && document.cookie.split("=")[1];
+// console.log(isSignin);
 
 const Links = ({
   // isSignin,
@@ -77,7 +78,6 @@ const Links = ({
           {isSignin && (
             <React.Fragment>
               <NavLink to="/Courses" activeStyle>
-                {" "}
                 Courses{" "}
               </NavLink>
               <NavLink to="/AdvancedCmps" activeStyle>
@@ -138,9 +138,19 @@ const Links = ({
             </div>
           </div>
           {isSignin ? (
-            <NavBtnLink to="/SignOut" activeStyle>
-              Sign Out
-            </NavBtnLink>
+            // <NavBtnLink to="/SignOut" activeStyle>
+            //   Sign Out
+            // </NavBtnLink>
+            <span
+              onClick={() => {
+                localStorage.setItem("issignedIn", "");
+                window.location.href = "/";
+              }}
+            >
+              <NavBtnLink to="/" activeStyle>
+                Sign Out
+              </NavBtnLink>
+            </span>
           ) : (
             <NavBtnLink to="/SignIn" activeStyle>
               Sign In

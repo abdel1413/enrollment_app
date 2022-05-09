@@ -1,7 +1,6 @@
 import React from "react";
 import "tachyons";
-
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 class SignUp extends React.Component {
   constructor(props) {
@@ -172,7 +171,7 @@ class SignUp extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/" />;
+      return <Navigate to="/" />;
     }
     return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50 mw6 shadow-5 center">

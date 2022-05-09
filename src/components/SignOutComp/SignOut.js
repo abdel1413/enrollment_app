@@ -1,4 +1,4 @@
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import React from "react";
 import "tachyons";
 import "./signout.css";
@@ -12,6 +12,6 @@ function SignOut() {
     document.location.href = "/";
   }
 
-  return <Redirect push to="/" />;
+  <Navigate push to="/" />;
 }
 export default SignOut;

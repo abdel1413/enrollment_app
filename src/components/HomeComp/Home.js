@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import axios from "axios";
+//import axios from "axios";
 
 import "./homestyle.css";
 import { Link } from "react-router-dom";
@@ -15,23 +15,9 @@ class Home extends React.Component {
       Name: "",
       Unit: "",
       route: "signin",
-      isSignedIn: false,
+      isSignedIn: localStorage.getItem("issignedIn") || false,
     };
   }
-
-  Addclass = () => {
-    //  make axios request by using localhost running express
-    //and the endpoit created in back-end
-    axios
-      .post("http://localhost:3001/create", {
-        classname: this.state.classname,
-        Name: this.state.Name,
-        Unit: this.state.Unit,
-      })
-      .then(() => {
-        alert("Success");
-      });
-  };
 
   //need to signin before you can see home screen
   onRouteChange = (route) => {
@@ -54,7 +40,6 @@ class Home extends React.Component {
 
     return (
       <div className="homepage">
-        {/* <div> home</div> */}
         <div className="bgimagestyle">
           <p className=" hover-bg-black pa2  shadow-5 textcontainer">
             Welcome to quick enrollment site This app is designed to help
@@ -63,37 +48,6 @@ class Home extends React.Component {
             professors who are teatching the course.
           </p>
         </div>
-
-        {/* <div className="addclass">
-            <label>Classname</label>
-            <input
-              type="text"
-              onChange={(e) => {
-                this.setState({ classname: e.target.value });
-              }}
-              placeholder=" Enter class"
-            />
-
-            <label>Name </label>
-            <input
-              type="text"
-              onChange={(e) => {
-                this.setState({ Name: e.target.value });
-              }}
-              placeholder=" Enter Name"
-            />
-
-            <label>Unit</label>
-            <input
-              type="number"
-              onChange={(e) => {
-                this.setState({ Unit: e.target.value });
-              }}
-              placeholder="Enter Unit"
-            />
-            <br />
-            <button onClick={this.Addclass}> add class</button>
-          </div> */}
       </div>
     );
   }

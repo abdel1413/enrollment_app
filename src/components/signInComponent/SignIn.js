@@ -4,7 +4,7 @@ import "./signin.css";
 
 // import Home from "../HomeComp/Home";
 // import SignUp from "../Pages/SignUp";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -119,7 +119,7 @@ class SignIn extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/" />;
+      return <Navigate to="/" />;
     }
     return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
