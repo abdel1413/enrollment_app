@@ -129,7 +129,6 @@ class SignUp extends React.Component {
       filter.test(email) === true &&
       passwd !== ""
     ) {
-      console.log("state ", this.state);
       fetch("http://localhost:3001/register", {
         method: "post",
         headers: { "Content-Type": "application/json" },

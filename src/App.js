@@ -34,10 +34,11 @@ function App() {
       const response = await axios.get("http://localhost:3001/courselist", {
         withCredentials: false,
       });
-      console.log(response.data);
+
       setCourses(response.data);
       setCourseSelected(new Array(response.data.length).fill(false));
     };
+
     getCoursesData();
 
     const displayCourses = async () => {

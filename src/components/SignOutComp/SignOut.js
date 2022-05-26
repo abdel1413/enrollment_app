@@ -6,7 +6,6 @@ import "./signout.css";
 const isSignin = localStorage.getItem("issignedIn");
 
 function SignOut() {
-  console.log("Signed Out");
   if (isSignin) {
     localStorage.setItem("issignedIn", "");
     document.location.href = "/";

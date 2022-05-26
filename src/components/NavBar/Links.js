@@ -91,11 +91,12 @@ const Links = ({
           </NavLink>
           {/* </NavMenu> */}
         </div>
+        <span> signed in as: </span>
         <NavBtn>
           <div>
-            {" "}
-            <SwitchButton label="switch" />{" "}
+            <SwitchButton label="switch" />
           </div>
+
           <div className="shoppingcart f3 " id="shoppingcart">
             <span className="counter" id="counter">
               {totalCourseItems.length + totalAdvCoureItems.length}
@@ -111,6 +112,7 @@ const Links = ({
               <FaShopify zise="2em" className="displayItems" id="displayItems">
                 {totalAdvCoureItems.length && totalCourseItems.length}
               </FaShopify>
+
               {shouldShowItems && (
                 <div className="shoppicart-items-container">
                   {totalAdvCoureItems
