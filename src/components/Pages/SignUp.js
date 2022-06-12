@@ -140,7 +140,6 @@ class SignUp extends React.Component {
         }),
       })
         .then(async (response) => {
-          console.log(response);
           if (response.status === 200) {
             this.setState({ redirect: true }, () => {
               this.props.setIsSigin(true);

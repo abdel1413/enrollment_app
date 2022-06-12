@@ -25,8 +25,10 @@ class SignIn extends React.Component {
   }
 
   onEmailChange = (event) => {
-    this.setState({ email: event.target.value });
+    let val = event.target.value;
+    this.setState({ email: val });
   };
+
   onPasswordChange = (event) => {
     this.setState({ password: event.target.value });
   };
@@ -42,25 +44,27 @@ class SignIn extends React.Component {
 
   componentDidMount() {
     // this.getUserstatus();
+    console.log("Yes!!");
 
     axios
       .get("http://localhost/3001/signin", { withCredentials: false })
       .then(async (response) => {
         if (response.status === 200) {
           const loginLink = await response.json();
-
-          this.setState({ login: loginLink });
+          console.log(loginLink);
+          //this.setState({ login: loginLink });
 
           // this.setState({ redirect: true }, () => {
           //   this.props.setIsLoggedIn(true);
           // });
         }
+
+        // console.log(this.state.login);
       })
       .catch((error) => console.log("can't login", error));
   }
 
   onSubmitSignIn = () => {
-    // console.log(this.state);
     axios
       .post(
         "http://localhost:3001/signin",
@@ -71,19 +75,20 @@ class SignIn extends React.Component {
           // body: JSON.stringify({
           email: this.state.email,
           password: this.state.password,
+
           // }),
         },
         { withCredentials: false }
       )
+
       .then(async (response) => {
-        console.log("response ", response);
-        console.log(response.status);
         if (response.status === 200) {
           const lg = response.data.logged;
-          console.log("this is login", lg);
+          console.log({ response });
 
           if (lg) {
             localStorage.setItem("issignedIn", true);
+            localStorage.setItem("username", response.data.username);
             // document.cookie = "isSignin=true";
 
             window.location.href = "/";
@@ -95,7 +100,6 @@ class SignIn extends React.Component {
             window.location.href = "/Signin";
           }
 
-          //console.log("this part", lg);
           // this.setState({ login: lg });
           //this.setState({ redirect: true }, () => {
           // this.props.setIsSignIn(true);
@@ -103,6 +107,7 @@ class SignIn extends React.Component {
           //console.log("you are logged in", lg);
           //});
         }
+        //console.log(this.state.email);
 
         if (response.status === 401) {
           const msg = await response.json();
@@ -121,6 +126,7 @@ class SignIn extends React.Component {
     if (this.state.redirect) {
       return <Navigate to="/" />;
     }
+
     return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80 ">

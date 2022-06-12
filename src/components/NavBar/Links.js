@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Axios from "axios";
 import { Nav, NavLink, Bars, NavBtn, NavBtnLink } from "./NavbarElements";
 import "tachyons";
 import "./navCart.css";
@@ -11,25 +11,28 @@ import { Icon } from "@iconify/react";
 import SwitchButton from "../SwitchComp/SwitchButton";
 
 const isSignin = localStorage.getItem("issignedIn");
+const username = localStorage.getItem("username");
 // const isSignin =
 //   document.cookie.split("=").length && document.cookie.split("=")[1];
 // console.log(isSignin);
 
 const Links = ({
-  // isSignin,
-  totalItems,
   totalCourseSelected,
   totalAdvCourseSelected,
-  courseIsChecked,
   setCourseIsChecked,
-  IsChecked,
   setIsChecked,
+  test,
+  setTest,
 }) => {
   // let totalItemsSelected = totalItems.filter((item) => item);
   let totalCourseItems = totalCourseSelected.filter((item) => item);
   let totalAdvCoureItems = totalAdvCourseSelected.filter((item) => item);
 
   const [shouldShowItems, setShouldShowItems] = useState(false);
+
+  // Axios.get("http://localhost:3001/showuser")
+  //   .then((res) => res.data)
+  //   .then((data) => console.log(data));
 
   const handleDelete = (item) => {
     const isNormalCourse = totalCourseItems.filter(
@@ -91,10 +94,13 @@ const Links = ({
           </NavLink>
           {/* </NavMenu> */}
         </div>
-        <span> signed in as: </span>
+        {isSignin && username ? (
+          <span className="singnedas"> signed in as: {username}</span>
+        ) : null}
+
         <NavBtn>
           <div>
-            <SwitchButton label="switch" />
+            <SwitchButton test={test} setTest={setTest} label="switch" />
           </div>
 
           <div className="shoppingcart f3 " id="shoppingcart">

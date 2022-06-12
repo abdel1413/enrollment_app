@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import "./Course.css";
-
 import {
   FaGithub,
   FaEnvelope,
@@ -14,7 +12,7 @@ import "tachyons";
 import Modal from "react-modal";
 import coursesInfo from "./CourseInfo";
 
-const Courses = ({ courseIsChecked, setCourseIsChecked, courses }) => {
+const Courses = ({ courseIsChecked, setCourseIsChecked, courses, test }) => {
   const [modalIsOpened, setModalIsOpend] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({});
 
@@ -46,6 +44,7 @@ const Courses = ({ courseIsChecked, setCourseIsChecked, courses }) => {
                 <input
                   className="checkbxstyle"
                   type="checkbox"
+                  disabled={!test}
                   checked={courseIsChecked[index]}
                   onChange={() => handCheckBox(index)}
                 />

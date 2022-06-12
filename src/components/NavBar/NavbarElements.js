@@ -39,7 +39,6 @@ export const NavLink = styled(Link)`
 
 export const Bars = styled(FaBars)`
   display: none;
-
   color: #808080;
   @media screen and (max-width: 768px) {
     display: block;
@@ -99,10 +98,3 @@ export const NavBtnLink = styled(Link)`
     color: #000000;
   }
 `;
-
-// .shoppingcart {
-//   display: flex;
-//   float: right;
-//   justify-content: flex-end;
-//   align-items: center;
-// }

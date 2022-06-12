@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  /* border: 1px solid black; */
+
   margin-right: 50px;
   text-align: center;
   justify-content: center;
@@ -9,7 +9,6 @@
 
 .labelstyle {
   display: flex;
-
   justify-content: center;
   align-items: center;
   margin-right: 5px;
@@ -18,7 +17,7 @@
 
 .toggle-switch {
   width: 70px;
-  /* border: red solid 1px; */
+
   display: inline-block;
   text-align: left;
   top: 8px;

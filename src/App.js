@@ -13,9 +13,12 @@ import NotFound from "./components/Pages/NotFound";
 
 import { useState, useEffect } from "react";
 
+// const test = true;
+
 function App() {
   // courses
   const [courses, setCourses] = useState([]);
+  const [test, setTest] = useState(false);
   const [courseSelected, setCourseSelected] = useState(
     new Array(courses.length).fill(false)
   );
@@ -68,6 +71,8 @@ function App() {
     <Router>
       <Links
         isSignin={isSignin}
+        test={test}
+        setTest={setTest}
         //totalItems={advCourseSelected.concat(courseSelected)}
         totalCourseSelected={courseSelected}
         totalAdvCourseSelected={advCourseSelected}
@@ -86,6 +91,7 @@ function App() {
           path="/Courses"
           element={
             <Courses
+              test={test}
               courseIsChecked={courseSelected}
               setCourseIsChecked={setCourseSelected}
               courses={courses}
@@ -97,6 +103,7 @@ function App() {
           path="/AdvancedCmps"
           element={
             <AdvancedCmps
+              test={test}
               isChecked={advCourseSelected}
               setIsChecked={setAdvCourseSelected}
               advCourse={advCourse}
