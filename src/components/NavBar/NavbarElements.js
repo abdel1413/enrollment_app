@@ -21,7 +21,6 @@ export const NavLink = styled(Link)`
   /*border:3px solid yellow;*/
   width: 100%;
   display: flex;
-
   margin-top: 0px;
   margin-bottom: 0px;
   margin-left: 10px;
@@ -30,7 +29,7 @@ export const NavLink = styled(Link)`
 
   align-items: center;
   text-decoration: none;
-  /*height: 100%;*/
+  /* height: 100%;*/
   cursor: pointer;
   &.active {
     color: #000000;

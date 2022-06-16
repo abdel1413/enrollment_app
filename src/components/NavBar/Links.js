@@ -100,7 +100,7 @@ const Links = ({
 
         <NavBtn>
           <div>
-            <SwitchButton test={test} setTest={setTest} label="switch" />
+            <SwitchButton test={test} setTest={setTest} label="Select" />
           </div>
 
           <div className="shoppingcart f3 " id="shoppingcart">
@@ -156,7 +156,7 @@ const Links = ({
               }}
             >
               <NavBtnLink to="/" activeStyle>
-                Sign Out
+                SignOut
               </NavBtnLink>
             </span>
           ) : (

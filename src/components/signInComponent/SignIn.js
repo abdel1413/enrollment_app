@@ -44,7 +44,6 @@ class SignIn extends React.Component {
 
   componentDidMount() {
     // this.getUserstatus();
-    console.log("Yes!!");
 
     axios
       .get("http://localhost/3001/signin", { withCredentials: false })
@@ -107,7 +106,6 @@ class SignIn extends React.Component {
           //console.log("you are logged in", lg);
           //});
         }
-        //console.log(this.state.email);
 
         if (response.status === 401) {
           const msg = await response.json();

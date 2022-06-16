@@ -30,7 +30,6 @@ function App() {
   );
   const [isSignin, setIsSigin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  //const [isSignOut, setIsSignOut] = useState(false);
 
   useEffect(() => {
     const getCoursesData = async () => {
@@ -82,7 +81,6 @@ function App() {
         isChecked={advCourseSelected}
         setIsChecked={setAdvCourseSelected}
       />
-      {/* <Home /> */}
 
       <Routes>
         <Route exact path="/" element={<Home />} />
